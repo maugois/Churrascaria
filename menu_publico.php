@@ -24,7 +24,7 @@ $rows_tipos = $lista_tipos->fetch_all();
                     <span class="icon-bar"></span>
                 </button>
                 <a href="index.php" class="navbar-brand">
-                    <img src="" alt="Logotipo Churrascaria do Mau">
+                    <img src="192x32" alt="Logotipo Churrascaria do Mau">
                 </a>
             </div>
             <!-- fecha agrupamento mobile -->
