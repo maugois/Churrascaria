@@ -70,7 +70,7 @@
         </div>
         <!-- area de contatos -->
         <div class="col-sm-6 col-md-4">
-            <div class="painel-footer" style="background: none;">
+            <div class="panel-footer" style="background: none;">
                 <h4>Contato</h4>
                 <form action="rodape_contato_envia.php" name="form_contato" id="form_contato" method="post">
                     <p>

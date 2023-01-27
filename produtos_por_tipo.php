@@ -72,6 +72,11 @@ $numRows = $listaPorTipo->num_rows;
                 <?php } while($rowPorTipo = $listaPorTipo->fetch_assoc());?>
             </div>
         <?php }?>
+        <!-- rodapé -->
+        <footer class="panel-footer" style="background: none;">
+            <?php include 'rodape.php'; ?>
+            <a name="contato"></a>
+        </footer>
     </div>
 </body>
 <!-- link para bootstrap -->

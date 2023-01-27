@@ -25,7 +25,7 @@ $num_linhas = $lista->num_rows;
     <!-- mostrar se a consulta retornou produtos -->
     <?php if($num_linhas > 0) {?>
         <h2 class="breadcrumb alert-danger">
-            <strong>Produtos Gerais</strong>
+            <strong>Produtos Geral</strong>
         </h2>
         <div class="row">
             <?php do {?>
