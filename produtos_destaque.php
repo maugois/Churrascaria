@@ -14,7 +14,7 @@ $num_linhas = $lista->num_rows;
     <link rel="stylesheet" href="css/estilo.css">
     <title>Destaques</title>
 </head>
-<body>
+<body class="fundofixo">
     <!-- mostrar se a consulta retornar vazia -->
     <?php if($num_linhas == 0) {?>
         <h2 class="breadcrumb alert-danger">

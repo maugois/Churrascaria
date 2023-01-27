@@ -23,6 +23,9 @@ $num_linhas = $lista->num_rows;
         <!-- mostrar se a consulta retornar vazia -->
         <?php if($num_linhas == 0) {?>
             <h2 class="breadcrumb alert-danger">
+                <a href="javascript:window.history.go(-1)" class="btn btn-danger">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>                
                 Não há produtos cadastrados
             </h2>
         <?php }?>
@@ -30,6 +33,9 @@ $num_linhas = $lista->num_rows;
         <!-- mostrar se a consulta retornou produtos -->
         <?php if($num_linhas > 0) {?>
             <h2 class="breadcrumb alert-danger">
+                <a href="javascript:window.history.go(-1)" class="btn btn-danger">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>
                 <strong>Produtos Gerais</strong>
             </h2>
             <div class="row">
