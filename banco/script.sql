@@ -105,3 +105,18 @@ CREATE VIEW vw_tbprodutos AS
 		JOIN tbtipos t
 	WHERE p.id_tipo_produto=t.id_tipo;
 COMMIT;
+
+-- MD5
+UPDATE tbusuarios set senha_usuario = md5(senha_usuario); 
+
+UPDATE tbusuarios set senha_usuario = md5(senha_usuario) where id_usuario between 1 and 4;
+
+ALTER TABLE tbusuarios CHANGE COLUMN senha_usuario senha_usuario VARCHAR(32);
+
+UPDATE tbusuarios set senha_usuario = '1234' where id_usuario = 1; 
+UPDATE tbusuarios set senha_usuario = '1234' where id_usuario = 1;
+UPDATE tbusuarios set senha_usuario = '789' where id_usuario = 1;
+UPDATE tbusuarios set senha_usuario = '456' where id_usuario = 1;
+UPDATE tbusuarios set senha_usuario = md5(senha_usuario) where id_usuario between 1 and 4;
+
+SET SQL_SAFE_UPDATES = 0;
