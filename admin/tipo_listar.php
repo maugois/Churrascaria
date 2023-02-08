@@ -1,7 +1,7 @@
 <?php 
 include 'acesso_com.php';
 include '../conn/connect.php';
-$lista = $conn->query("select * from vw_tbprodutos order by id_produto desc");
+$lista = $conn->query("select * from tbtipos order by id_tipo desc");
 $row = $lista->fetch_assoc();
 $rows = $lista->num_rows;
 ?>
@@ -11,29 +11,25 @@ $rows = $lista->num_rows;
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Produtos - Lista</title>
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/estilo.css">
+    
+    <title>Document</title>
 </head>
-<body class="fundofixo"> 
-    <?php include "menu_adm.php"; ?>
+<body>
+<?php include "menu_adm.php"; ?>
     <main class="container">
         <h2 class="breadcrumb alert-danger">
-            <a class="text-decoration-none" href="adm_options.php">
+            <a class="text-decoration-none" href="index.php">
                 <button class="btn btn-danger">
                     <span class="glyphicon glyphicon-chevron-left"></span>
                 </button>
-            </a>
+            </a>    
             <strong>Lista de Produtos</strong>
         </h2>
         <table class="table table-hover table-condensed tb-opacidade bg-warning" style="border-radius: 5px;"> 
             <thead>
                 <th class="hidden">ID</th>
-                <th>TIPO</th>
-                <th>DESCRIÇÃO</th>
-                <th>RESUMO</th>
-                <th>VALOR</th>
-                <th>IMAGEM</th>
+                <th>SIGLA</th>
+                <th>RÓTULO</th>
                 <th>
                     <a href="produtos_insere.php" target="_self" class="btn btn-block btn-primary btn-xs" role="button">
                         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
@@ -47,50 +43,26 @@ $rows = $lista->num_rows;
                     <?php do {?>
                     <tr>
                         <td class="hidden">
-                            <?php echo $row['id_produto'];?>
+                            <?php echo $row['id_tipo'];?>
                         </td>
 
 
                         <td>
-                            <?php echo $row['rotulo_tipo'];?>
-                            <span class="visible-xs"></span>
-                            <span class="hidden-xs"></span>
+                            <?php echo $row['sigla_tipo'];?>
                         </td>
 
                         
                         <td>
-                            <?php 
-                                if ($row['destaque_produto']=='Sim') { 
-                                    echo '<span class="glyphicon glyphicon-heart text-danger" aria-hidden="true"></span>';
-                                }else{
-                                    echo '<span class="glyphicon glyphicon-ok text-info" aria-hidden="true"></span>';
-                                }
-                            ?> 
-                            <?php echo $row['descri_produto']?>    
-                        </td>
-
-
-                        <td> 
-                            <?php echo $row['resumo_produto'];?>
+                            <?php echo $row['rotulo_tipo']?>    
                         </td>
 
 
                         <td>
-                            <?php echo number_format($row['valor_produto'],2,',','.');?>
-                        </td>
-
-
-                        <td>
-                            <img src="../images/<?php echo $row['imagem_produto'];?>" width="100px">
-                        </td>
-
-
-                        <td>
-                            <a href="produtos_atualiza.php?id_produto=<?php echo $row['id_produto']?>" role="button" class="btn btn-warning btn-block btn-xs"> 
+                            <a href="produtos_atualiza.php?id_produto=<?php echo $row['id_tipo']?>" role="button" class="btn btn-warning btn-block btn-xs"> 
                                 <span class="glyphicon glyphicon-refresh"></span>
                                 <span class="hidden-xs">ALTERAR</span>
                             </a>
-                            <button data-nome="<?php echo $row['descri_produto']?>" data-id="<?php echo $row['id_produto']?>" class="delete btn btn-xs btn-block btn-danger">
+                            <button data-nome="<?php echo $row['']?>" data-id="<?php echo $row['id_tipo']?>" class="delete btn btn-xs btn-block btn-danger">
                                 <span class="glyphicon glyphicon-trash"></span>
                                 <span class="hidden-xs">EXCLUIR</span>
                             </button>
@@ -125,16 +97,4 @@ $rows = $lista->num_rows;
         </div>
     </div>
 </body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="../js/bootstrap.min.js"></script>
-<script type="text/javascript">
-    $('.delete').on('click',function(){
-        var nome = $(this).data('nome'); //busca o nome com a descrição (data-nome)
-        var id = $(this).data('id'); // busca o id (data-id)
-        //console.log(id + ' - ' + nome); //exibe no console
-        $('span.nome').text(nome); // insere o nome do item na confirmação
-        $('a.delete-yes').attr('href','produtos_excluir.php?id_produto='+id); //chama o arquivo php para excluir o produto
-        $('#modalEdit').modal('show'); // chamar o modal
-    });
-</script>
 </html>

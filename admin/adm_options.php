@@ -68,14 +68,14 @@
 
                     <div class="btn-group btn-group-justified" role="group">
                         <div class="btn-group">
-                            <a href="tipos_lista.php">
+                            <a href="tipo_listar.php">
                                 <button class="btn btn-warning">
                                     LISTAR
                                 </button>
                             </a>
                         </div><!-- fecha btn-group -->
                         <div class="btn-group">
-                            <a href="tipos_insere.php">
+                            <a href="tipo_insere.php">
                                 <button class="btn btn-warning">
                                     INSERIR
                                 </button>
@@ -104,14 +104,14 @@
 
                     <div class="btn-group btn-group-justified" role="group">
                         <div class="btn-group">
-                            <a href="usuarios_lista.php">
+                            <a href="usuario_listar.php">
                                 <button class="btn btn-info">
                                     LISTAR
                                 </button>
                             </a>
                         </div><!-- fecha btn-group -->
                         <div class="btn-group">
-                            <a href="usuarios_insere.php">
+                            <a href="usuario_insere.php">
                                 <button class="btn btn-info">
                                     INSERIR
                                 </button>
