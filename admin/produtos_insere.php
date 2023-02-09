@@ -46,7 +46,7 @@ $numRows = $lista_fk->num_rows;
     <link rel="stylesheet" href="../css/estilo.css">
     <title>Produto - Insere</title>
 </head>
-<body>
+<body class="fundofixo">
     <?php include 'menu_adm.php';?>
 
     <main class="container">

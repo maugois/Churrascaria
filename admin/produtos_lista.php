@@ -29,11 +29,11 @@ $rows = $lista->num_rows;
         <table class="table table-hover table-condensed tb-opacidade bg-warning" style="border-radius: 5px;"> 
             <thead>
                 <th class="hidden">ID</th>
-                <th>TIPO</th>
-                <th>DESCRIÇÃO</th>
-                <th>RESUMO</th>
-                <th>VALOR</th>
-                <th>IMAGEM</th>
+                <th class="text-center">TIPO</th>
+                <th class="text-center">DESCRIÇÃO</th>
+                <th class="text-center">RESUMO</th>
+                <th class="text-center">VALOR</th>
+                <th class="text-center">IMAGEM</th>
                 <th>
                     <a href="produtos_insere.php" target="_self" class="btn btn-block btn-primary btn-xs" role="button">
                         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
@@ -51,14 +51,14 @@ $rows = $lista->num_rows;
                         </td>
 
 
-                        <td>
+                        <td class="text-center">
                             <?php echo $row['rotulo_tipo'];?>
                             <span class="visible-xs"></span>
                             <span class="hidden-xs"></span>
                         </td>
 
                         
-                        <td>
+                        <td class="text-center">
                             <?php 
                                 if ($row['destaque_produto']=='Sim') { 
                                     echo '<span class="glyphicon glyphicon-heart text-danger" aria-hidden="true"></span>';
@@ -70,12 +70,12 @@ $rows = $lista->num_rows;
                         </td>
 
 
-                        <td> 
+                        <td class="text-center"> 
                             <?php echo $row['resumo_produto'];?>
                         </td>
 
 
-                        <td>
+                        <td class="text-center">
                             <?php echo number_format($row['valor_produto'],2,',','.');?>
                         </td>
 

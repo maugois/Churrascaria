@@ -11,10 +11,11 @@ $rows = $lista->num_rows;
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/estilo.css">
     <title>Document</title>
 </head>
-<body>
+<body class="fundofixo">
 <?php include "menu_adm.php"; ?>
     <main class="container">
         <h2 class="breadcrumb alert-danger">
@@ -23,13 +24,13 @@ $rows = $lista->num_rows;
                     <span class="glyphicon glyphicon-chevron-left"></span>
                 </button>
             </a>    
-            <strong>Lista de Produtos</strong>
+            <strong>Lista de Tipos</strong>
         </h2>
         <table class="table table-hover table-condensed tb-opacidade bg-warning" style="border-radius: 5px;"> 
             <thead>
                 <th class="hidden">ID</th>
-                <th>SIGLA</th>
-                <th>RÓTULO</th>
+                <th class="text-center">SIGLA</th>
+                <th class="text-center">RÓTULO</th>
                 <th>
                     <a href="produtos_insere.php" target="_self" class="btn btn-block btn-primary btn-xs" role="button">
                         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
@@ -47,22 +48,22 @@ $rows = $lista->num_rows;
                         </td>
 
 
-                        <td>
+                        <td class="text-center text-uppercase">
                             <?php echo $row['sigla_tipo'];?>
                         </td>
 
                         
-                        <td>
+                        <td class="text-center">
                             <?php echo $row['rotulo_tipo']?>    
                         </td>
 
 
                         <td>
-                            <a href="produtos_atualiza.php?id_produto=<?php echo $row['id_tipo']?>" role="button" class="btn btn-warning btn-block btn-xs"> 
+                            <a href="tipo_atualizar.php?id_tipo=<?php echo $row['id_tipo']?>" role="button" class="btn btn-warning btn-block btn-xs"> 
                                 <span class="glyphicon glyphicon-refresh"></span>
                                 <span class="hidden-xs">ALTERAR</span>
                             </a>
-                            <button data-nome="<?php echo $row['']?>" data-id="<?php echo $row['id_tipo']?>" class="delete btn btn-xs btn-block btn-danger">
+                            <button data-nome="<?php echo $row['rotulo_tipo']?>" data-id="<?php echo $row['id_tipo']?>" class="delete btn btn-xs btn-block btn-danger">
                                 <span class="glyphicon glyphicon-trash"></span>
                                 <span class="hidden-xs">EXCLUIR</span>
                             </button>
@@ -82,7 +83,7 @@ $rows = $lista->num_rows;
                     </button>
                 </div>
                 <div class="modal-body">
-                    Deseja mesmo excluir o item?
+                    Deseja mesmo excluir a categoria?
                     <h4><span class="nome text-danger"></span></h4>
                 </div>
                 <div class="modal-footer">
@@ -97,4 +98,16 @@ $rows = $lista->num_rows;
         </div>
     </div>
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script type="text/javascript">
+    $('.delete').on('click',function(){
+        var nome = $(this).data('nome'); //busca o nome com a descrição (data-nome)
+        var id = $(this).data('id'); // busca o id (data-id)
+        //console.log(id + ' - ' + nome); //exibe no console
+        $('span.nome').text(nome); // insere o nome do item na confirmação
+        $('a.delete-yes').attr('href','tipo_excluir.php?id_tipo='+id); //chama o arquivo php para excluir o produto
+        $('#modalEdit').modal('show'); // chamar o modal
+    });
+</script>
 </html>
