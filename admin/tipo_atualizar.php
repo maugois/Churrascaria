@@ -7,8 +7,7 @@ if ($_POST) {
     $id_tipo_produto = $_POST['id_tipo_produto'];
     $destaque_produto = $_POST['destaque_produto'];
     $descri_produto = $_POST['descri_produto'];
-    $resumo_produto = $_POST['resumo_produto'];
-    $valor_produto = $_POST['valor_produto'];
+
 
     $id = $_POST['id_produto'];
 
