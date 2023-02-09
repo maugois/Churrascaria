@@ -13,7 +13,7 @@ $rows = $lista->num_rows;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/estilo.css">
-    <title>Document</title>
+    <title>Tipo - Listar</title>
 </head>
 <body class="fundofixo">
 <?php include "menu_adm.php"; ?>
@@ -32,7 +32,7 @@ $rows = $lista->num_rows;
                 <th class="text-center">SIGLA</th>
                 <th class="text-center">RÓTULO</th>
                 <th>
-                    <a href="produtos_insere.php" target="_self" class="btn btn-block btn-primary btn-xs" role="button">
+                    <a href="tipo_insere.php" target="_self" class="btn btn-block btn-primary btn-xs" role="button">
                         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                         <span class="hidden-xs">ADICIONAR</span>
                     </a>

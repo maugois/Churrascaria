@@ -13,7 +13,7 @@ $rows = $lista->num_rows;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/estilo.css">
-    <title>Document</title>
+    <title>Usuário - Lista</title>
 </head>
 <body class="fundofixo">
 <?php include "menu_adm.php"; ?>
@@ -30,7 +30,6 @@ $rows = $lista->num_rows;
             <thead>
                 <th class="hidden">ID</th>
                 <th class="text-center">LOGIN</th>
-                <th class="text-center">SENHA</th>
                 <th class="text-center">NÍVEL</th>
                 <th>
                     <a href="usuario_insere.php" target="_self" class="btn btn-block btn-primary btn-xs" role="button">
@@ -53,18 +52,13 @@ $rows = $lista->num_rows;
                             <?php echo $row['login_usuario'];?>
                         </td>
 
-                        
-                        <td class="text-center">
-                            <?php echo $row['senha_usuario']?>    
-                        </td>
-
 
                         <td class="text-center text-uppercase"> 
                             <?php echo $row['nivel_usuario'];?>
                         </td>
 
                         <td>
-                            <a href="usuario_atualizar.php?id_produto=<?php echo $row['id_usuario']?>" role="button" class="btn btn-warning btn-block btn-xs"> 
+                            <a href="usuario_atualizar.php?id_usuario=<?php echo $row['id_usuario']?>" role="button" class="btn btn-warning btn-block btn-xs"> 
                                 <span class="glyphicon glyphicon-refresh"></span>
                                 <span class="hidden-xs">ALTERAR</span>
                             </a>
