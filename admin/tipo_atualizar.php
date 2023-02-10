@@ -75,7 +75,7 @@ $numRows = $lista->num_rows;
                                     <span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span>
                                 </span>
                                 
-                                <input type="text" name="sigla_tipo" id="sigla_tipo" class="form-control" placeholder="Digite a sigla do Tipo" maxlength="100" value="<?php echo $row['sigla_tipo'] ?>">
+                                <input type="text" name="sigla_tipo" id="sigla_tipo" class="form-control" placeholder="Digite a sigla do Tipo" maxlength="3" value="<?php echo $row['sigla_tipo'] ?>">
                             </div>
 
                             <hr>

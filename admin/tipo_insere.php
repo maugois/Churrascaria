@@ -59,7 +59,7 @@ if (mysqli_insert_id($conn)) {
                                     <span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span>
                                 </span>
                                 
-                                <input type="text" name="sigla_tipo" id="sigla_tipo" class="form-control" placeholder="Digite a sigla do Tipo" maxlength="100" required>
+                                <input type="text" name="sigla_tipo" id="sigla_tipo" class="form-control" placeholder="Digite a sigla do Tipo" maxlength="3" required>
                             </div>
 
                             <hr>

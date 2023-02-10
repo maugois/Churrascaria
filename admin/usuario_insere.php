@@ -52,7 +52,7 @@ if (mysqli_insert_id($conn)) {
                                 <span class="input-group-addon">
                                     <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
                                 </span>
-                                <input type="text" name="login_usuario" id="login_usuario" class="form-control" placeholder="Digite o login do usuário" maxlength="100" required>
+                                <input type="text" name="login_usuario" id="login_usuario" class="form-control" placeholder="Digite o login do usuário" maxlength="32" required>
                             </div>
 
                             
@@ -61,7 +61,7 @@ if (mysqli_insert_id($conn)) {
                                 <span class="input-group-addon">
                                     <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
                                 </span>
-                                <input type="password" name="senha_usuario" id="senha_usuario" class="form-control" placeholder="Digite a senha do usuário" maxlength="100" required>
+                                <input type="password" name="senha_usuario" id="senha_usuario" class="form-control" placeholder="Digite a senha do usuário" maxlength="32" required>
                             </div>
 
 
