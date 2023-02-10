@@ -2,34 +2,34 @@
 include 'acesso_com.php';
 include '../conn/connect.php';
 
-if ($_POST) { 
+if ($_POST) {
+    
+    $id_usuario = $_POST['id_usuario'];
+    $login_usuario = $_POST['login_usuario'];
+    $nivel_usuario = $_POST['nivel_usuario'];
 
-    $id_tipo = $_POST['id_tipo'];
-    $sigla_tipo = $_POST['sigla_tipo'];
-    $rotulo_tipo = $_POST['rotulo_tipo'];
 
+    $id = $_POST['id_usuario'];
 
-    $id = $_POST['id_tipo'];
-
-    $updateSql = "UPDATE tbtipos
-                    SET id_tipo = '$id_tipo', 
-                    sigla_tipo = '$sigla_tipo', 
-                    rotulo_tipo = '$rotulo_tipo'
-                     WHERE id_tipo = $id;";
+    $updateSql = "UPDATE tbusuarios
+                    SET id_usuario = '$id_usuario', 
+                    login_usuario = '$login_usuario', 
+                    nivel_usuario = '$nivel_usuario'
+                     WHERE id_usuario = $id;";
     $resultado = $conn->query($updateSql);
 
     if ($resultado) {
-        header('location: tipo_listar.php');
+        header('location: usuario_listar.php');
     } 
 }
 
 if ($_GET) {
-    $id_form = $_GET['id_tipo'];
+    $id_form = $_GET['id_usuario'];
 } else {
     $id_form = 0;
 }
 
-$lista = $conn->query("SELECT * FROM tbtipos WHERE id_tipo = $id_form");
+$lista = $conn->query("SELECT * FROM tbusuarios WHERE id_usuario = $id_form");
 $row = $lista->fetch_assoc();
 $numRows = $lista->num_rows;
 ?>
@@ -50,7 +50,7 @@ $numRows = $lista->num_rows;
         <div class="row">
             <div class="col-xs-12 col-sm-offset-2 col-sm-6 col-md-8">
                 <h2 class="breadcrumb text-danger">
-                    <a class="text-decoration-none" href="produtos_lista.php">
+                    <a class="text-decoration-none" href="usuario_listar.php">
                         <button class="btn btn-danger">
                             <span class="glyphicon glyphicon-chevron-left"></span>
                         </button>
@@ -59,13 +59,15 @@ $numRows = $lista->num_rows;
                 </h2>
                 <div class="thumbnail">
                     <div class="alert alert-danger" role="alert">
-                        <form action="usuario_insere.php" method="post" name="form_usuario_insere" enctype="multipart/form-data" id="form_usuario_insere">
+                        <form action="usuario_atualizar.php" method="post" name="form_usuario_atualizar" enctype="multipart/form-data" id="form_usuario_atualizar">
+                            <input type="hidden" name="id_usuario" id="id_usuario" value="<?php echo $row['id_usuario']; ?>">
+                        
                             <label for="resumo_produto">Login do usuário:</label>
                             <div class="input-group">
                                 <span class="input-group-addon">
                                     <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
                                 </span>
-                                <input type="text" name="login_usuario" id="login_usuario" class="form-control" placeholder="Digite o login do usuário" maxlength="100" required value="">
+                                <input type="text" name="login_usuario" id="login_usuario" class="form-control" placeholder="Digite o login do usuário" maxlength="100" required value="<?php echo $row['login_usuario']?>">
                             </div>
 
 
@@ -77,6 +79,7 @@ $numRows = $lista->num_rows;
                                 <select name="nivel_usuario" id="nivel_usuario" class="form-control" required>
                                         <option value="sup">Superior</option>
                                         <option value="ven">Vendedor</option>
+                                        <option value="com">Comum</option>
                                 </select>
                             </div>
                             <hr>

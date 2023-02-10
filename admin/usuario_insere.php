@@ -37,7 +37,7 @@ if (mysqli_insert_id($conn)) {
         <div class="row">
             <div class="col-xs-12 col-sm-offset-2 col-sm-6 col-md-8">
                 <h2 class="breadcrumb text-danger">
-                    <a class="text-decoration-none" href="produtos_lista.php">
+                    <a class="text-decoration-none" href="usuario_listar.php">
                         <button class="btn btn-danger">
                             <span class="glyphicon glyphicon-chevron-left"></span>
                         </button>
@@ -46,7 +46,7 @@ if (mysqli_insert_id($conn)) {
                 </h2>
                 <div class="thumbnail">
                     <div class="alert alert-danger" role="alert">
-                        <form action="usuario_insere.php" method="post" name="form_usuario_insere" enctype="multipart/form-data" id="form_usuario_insere">
+                        <form action="usuario_insere.php" method="post" name="form_usuario_insere" enctype="multipart/form-data" id="form_usuario_insere">                        
                             <label for="resumo_produto">Login do usuário:</label>
                             <div class="input-group">
                                 <span class="input-group-addon">
@@ -73,6 +73,7 @@ if (mysqli_insert_id($conn)) {
                                 <select name="nivel_usuario" id="nivel_usuario" class="form-control" required>
                                         <option value="sup">Superior</option>
                                         <option value="ven">Vendedor</option>
+                                        <option value="com">Comum</option>
                                 </select>
                             </div>
                             <hr>

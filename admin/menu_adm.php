@@ -37,8 +37,8 @@
                     </li>
                     <li class="active"><a href="index.php">ADMIN</a></li>
                     <li><a href="produtos_lista.php">PRODUTOS</a></li>
-                    <li><a href="tipos_lista.php">TIPOS</a></li>
-                    <li><a href="usuarios_lista.php">USUÁRIOS</a></li>
+                    <li><a href="tipo_listar.php">TIPOS</a></li>
+                    <li><a href="usuario_listar.php">USUÁRIOS</a></li>
                     <li class="active">
                         <a href="../index.php">
                             <span class="glyphicon glyphicon-home"></span>
