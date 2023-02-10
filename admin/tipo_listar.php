@@ -63,7 +63,9 @@ $rows = $lista->num_rows;
                                 <span class="glyphicon glyphicon-refresh"></span>
                                 <span class="hidden-xs">ALTERAR</span>
                             </a>
-                            <button data-nome="<?php echo $row['rotulo_tipo']?>" data-id="<?php echo $row['id_tipo']?>" class="delete btn btn-xs btn-block btn-danger">
+
+                            <?php $disabled_tipo = $conn->query("select id_tipo_produto from vw_tbprodutos where id_tipo_produto = ".$row['id_tipo']." limit 1;");?>
+                            <button data-nome="<?php echo $row['rotulo_tipo']?>" data-id="<?php echo $row['id_tipo']?>" class="delete btn btn-xs btn-block btn-danger" <?php echo $disabled_tipo->num_rows > 0 ? 'disabled' : '';?>>
                                 <span class="glyphicon glyphicon-trash"></span>
                                 <span class="hidden-xs">EXCLUIR</span>
                             </button>
