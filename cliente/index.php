@@ -1,13 +1,12 @@
-<h2>
-  <strong><?php echo $_GET['cliente']; ?></strong>, Bem vindo à sua área de cliente
-  
-  <?php 
-  $hash64 = base64_encode('1234');
-  $md5Base = md5($hash64);
-
-  echo $md5Base;
-  echo $hash64;
-  echo '<br>';
-  echo base64_decode($hash64);
-  ?>
-</h2>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Área do cliente</title>
+</head>
+<body>
+  <?php include 'menu_cliente.php';?>
+</body>
+</html>

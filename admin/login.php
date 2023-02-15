@@ -72,6 +72,7 @@ if ($_POST) {
                                         </span>
                                         <input type="password" name="senha_usuario" id="senha_usuario" class="form-control" required autocomplete="off" placeholder="Digite sua senha.">
                                     </p>
+                                    <a class="font-weight-bolder" href="../cliente/cliente_cadastro.php">Cadastra-se</a>
                                     <p class="text-right">
                                         <input type="submit" value="Entrar" class="btn btn-primary">
                                     </p>
