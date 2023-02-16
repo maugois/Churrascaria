@@ -1,5 +1,5 @@
 <?php 
- 
+echo 'phpmail';
 ?>
 
 <!DOCTYPE html>
@@ -53,6 +53,15 @@
                                 </span>
                                 
                                 <input type="text" name="sigla_tipo" id="sigla_tipo" class="form-control" placeholder="Digite a sigla do Tipo" maxlength="3" required>
+                            </div>
+
+                            <label for="sigla_tipo">Número de pessoas:</label>
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-book" aria-hidden="true"></span>
+                                </span>
+                                
+                                <input type="number" name="sigla_tipo" id="sigla_tipo" class="form-control" placeholder="Digite a sigla do Tipo" required>
                             </div>
 
                             <hr>

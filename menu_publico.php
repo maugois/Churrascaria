@@ -49,6 +49,13 @@ $rows_tipos = $lista_tipos->fetch_all();
 
                                     <!-- Modal body -->
                                     <div class="modal-body">
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item"><strong>O pedido da reserva deve ser feito apenas por um CPF para o mesmo dia.</strong></li>
+                                            <li class="list-group-item"><strong> O pedido da reserva deve ter mínimo 48 horas de antecedência e no máximo 90 dias para ser efetuada.</strong></li>
+                                            <li class="list-group-item"><strong>As informações usadas para a realização do pedido da reserva são: 
+                                                Nome completo, CPF e o E-mail.&nbsp;&#128521;</strong>
+                                            </li>
+                                        </ul>
                                         
                                     </div>
 
