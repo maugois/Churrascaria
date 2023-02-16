@@ -33,6 +33,7 @@ $rows_tipos = $lista_tipos->fetch_all();
                 <ul class="nav navbar-nav navbar-right">
                     <li>
                         <button type="button" class="btn btn-danger navbar-btn" data-toggle="modal" data-target="#myModal">
+                            <span class="glyphicon glyphicon-calendar"></span>&nbsp;
                             FAÇA SUA RESERVA
                         </button>
                         
@@ -42,7 +43,7 @@ $rows_tipos = $lista_tipos->fetch_all();
 
                                     <!-- Modal Header -->
                                     <div class="modal-header d-flex">
-                                        <h4 class="modal-title">Orientação</h4>
+                                        <h4 class="modal-title">Atenção:</h4>
                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                                     </div>
 
@@ -93,6 +94,10 @@ $rows_tipos = $lista_tipos->fetch_all();
                             </div>
                         </div>                                
                     </form>
+
+                    <?php 
+
+                    ?>
                     <!-- fim do formulário de busca -->
                     <li class="active">
                         <a href="admin/index.php">

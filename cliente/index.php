@@ -8,5 +8,6 @@
 </head>
 <body>
   <?php include 'menu_cliente.php';?>
+  <?php include 'cliente_lista.php';?>
 </body>
 </html>

@@ -39,29 +39,29 @@ if ($_POST) {
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <script src="https://kit.fontawesome.com/2495680ceb.js" crossorigin="anonymous"></script>
     <!-- Link para CSS específico -->
-    <link rel="stylesheet" href="../css/meu_estilo.css" type="text/css">
+    <link rel="stylesheet" href="../css/estilo.css" type="text/css">
     
     <title>Chuleta Quente - Login</title>
 </head>
 
-<body>
+<body class="fundofixo">
     <main class="container">
         <section>
             <article>
                 <div class="row">
                     <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
-                        <h1 class="breadcrumb text-info text-center">Faça seu login</h1>
+                        <h1 class="breadcrumb text-danger text-center">Faça seu login</h1>
                         <div class="thumbnail">
                             <p class="text-info text-center" role="alert">
-                                <i class="fas fa-users fa-10x"></i>
+                                <i class="fas fa-users fa-10x text-danger"></i>
                             </p>
                             <br>
-                            <div class="alert alert-info" role="alert">
+                            <div class="alert alert-danger" role="alert">
                                 <form action="login.php" name="form_login" id="form_login" method="POST" enctype="multipart/form-data">
                                     <label for="login_usuario">Login:</label>
                                     <p class="input-group">
                                         <span class="input-group-addon">
-                                            <span class="glyphicon glyphicon-user text-info" aria-hidden="true"></span>
+                                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
                                         </span>
                                         <input type="text" name="login_usuario" id="login_usuario" class="form-control" autofocus required autocomplete="off" placeholder="Digite seu login.">
                                     </p>
@@ -72,9 +72,9 @@ if ($_POST) {
                                         </span>
                                         <input type="password" name="senha_usuario" id="senha_usuario" class="form-control" required autocomplete="off" placeholder="Digite sua senha.">
                                     </p>
-                                    <a class="font-weight-bolder" href="../cliente/cliente_cadastro.php">Cadastra-se</a>
+                                    <a class="font-weight-bolder text-danger" href="../cliente/cliente_cadastro.php">Cadastra-se</a>
                                     <p class="text-right">
-                                        <input type="submit" value="Entrar" class="btn btn-primary">
+                                        <input type="submit" value="Entrar" class="btn btn-danger">
                                     </p>
                                 </form>
                                 <p class="text-center">
