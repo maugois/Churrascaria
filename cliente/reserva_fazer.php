@@ -3,15 +3,13 @@ include '../conn/connect.php';
 $data = new DateTime();
 
 if ($_POST) {
-    $listaUsu = $conn->query("select cpf from tbusuarios");
-    $rowUsu = $listaUsu->fetch_assoc();
-    $login_cpf = $rowUsu["login_usuario"];
+    $cpf = $_POST['cpf'];
 
-    $lista = $conn->query("select cpf from tbclientes where = '$login_cpf'");
-    $row = $lista->fetch_assoc();
-    $rows = $lista->num_rows;
+    $listaCli = $conn->query("select cpf from tbclientes where cpf = '$cpf'");
+    $rowCli = $listaCli->fetch_assoc();
+    $rowsCli = $listaCli->num_rows;
 
-    if ($rows < 1) {
+    if ($rowsCli < 1) {
         $nome_completo = $_POST['nome_completo'];
         $email = $_POST['email'];
         $cpf = $_POST['cpf'];
