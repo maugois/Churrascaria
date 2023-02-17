@@ -26,7 +26,6 @@
                         <div class="thumbnail">
                             <p class="text-info text-center" role="alert">
                                 <i class="fa-solid fa-pen-to-square fa-10x text-danger"></i>
-                                <i class="fa-solid fa-pen-to-square"></i>
                             </p>
                             <br>
                             <div class="alert alert-danger" role="alert">
@@ -63,8 +62,6 @@
                                         </span>
                                         <input type="password" name="senha_usuario" id="senha_usuario" class="form-control" required autocomplete="off" placeholder="Digite sua senha.">
                                     </p>
-
-                                    <a class="font-weight-bolder text-danger" href="../cliente/cliente_cadastro.php">Cadastra-se</a>
 
                                     <div class="d-flex justify-content-between">
                                         <a href="../index.php" class="text-left btn btn-danger" role="btn">Voltar</a>
