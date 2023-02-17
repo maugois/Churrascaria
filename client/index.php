@@ -11,6 +11,6 @@ include '../admin/acesso_com.php';
 </head>
 <body>
   <?php include 'menu_cliente.php';?>
-  <?php include 'cliente_lista.php';?>
+  <?php include 'cliente_options.php';?>
 </body>
 </html>
