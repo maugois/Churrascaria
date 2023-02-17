@@ -10,20 +10,20 @@ if ($_POST) {
     $insereUsuario = "INSERT INTO tbusuarios 
                 (login_usuario, senha_usuario, nivel_usuario)
                 VALUES 
-                ('$email', '$senha_usuario', 'com');
+                ('$cpf', '$senha_usuario', 'com');
                 ";
 
-    $lista = $conn->query("select * from tbusuarios order by id_usuario desc limit 1");
-    $row = $lista->fetch_assoc();
-    $id_usuario_fk = $row['id_usuario'];
-
     $insereCliente = "INSERT INTO tbclientes 
-                    (nome, email, cpf, id_usuario_fk)
+                    (nome, email, cpf)
                     VALUES 
-                    ('$nome_completo', '$email', '$cpf', '$id_usuario_fk');
+                    ('$nome_completo', '$email', '$cpf');
                     ";
     $resultado = $conn->query($insereUsuario);
     $resultado = $conn->query($insereCliente);
+}
+
+if (mysqli_insert_id($conn)) {
+    header('location: ../index.php');
 }
 ?>
 

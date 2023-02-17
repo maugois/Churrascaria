@@ -121,42 +121,6 @@
         </div><!-- fecha col -->
         <!-- fecha ADM USUÁRIOS -->
 
-                <!-- ADM MESAS -->
-        <div class="col-sm-6 col-md-4">
-            <div class="thumbnail alert-primary">
-                <br>
-                <div class="alert-primary">
-
-                    <div class="btn-group btn-group-justified" role="group">
-                        <div class="btn-group">
-                            <button class="btn btn-default disabled" role="alert" style="cursor: default;">
-                                MESAS
-                            </button>
-                        </div><!-- fecha btn-group -->
-                    </div><!-- fecha btn-group-justified -->
-
-                    <div class="btn-group btn-group-justified" role="group">
-                        <div class="btn-group">
-                            <a href="mesas_listar.php">
-                                <button class="btn btn-primary">
-                                    LISTAR
-                                </button>
-                            </a>
-                        </div><!-- fecha btn-group -->
-                        <div class="btn-group">
-                            <a href="mesas_insere.php">
-                                <button class="btn btn-primary">
-                                    INSERIR
-                                </button>
-                            </a>
-                        </div><!-- fecha btn-group -->
-                    </div><!-- fecha btn-group-justified -->
-
-                </div><!-- fecha alert-danger -->
-            </div><!-- fecha thumbnail -->
-        </div><!-- fecha col -->
-        <!-- fecha ADM MESAS -->
-
         <!-- ADM RESERVAS -->
         <div class="col-sm-6 col-md-4">
             <div class="thumbnail alert-success">

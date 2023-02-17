@@ -63,8 +63,7 @@ $rows = $lista->num_rows;
                                 <span class="hidden-xs">ALTERAR</span>
                             </a>
 
-                            <?php $disabled_usuario = $conn->query("select id_usuario_fk from vw_tbreserva where id_usuario_fk = ".$row['id_usuario'].";");?>
-                            <button data-nome="<?php echo $row['login_usuario']?>" data-id="<?php echo $row['id_usuario']?>" class="delete btn btn-xs btn-block btn-danger" <?php echo $disabled_usuario->num_rows > 0 ? 'disabled' : '';?>>
+                            <button data-nome="<?php echo $row['login_usuario']?>" data-id="<?php echo $row['id_usuario']?>" class="delete btn btn-xs btn-block btn-danger">
                                 <span class="glyphicon glyphicon-trash"></span>
                                 <span class="hidden-xs">EXCLUIR</span>
                             </button>
