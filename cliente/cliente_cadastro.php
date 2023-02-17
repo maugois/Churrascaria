@@ -1,5 +1,30 @@
 <?php 
+include '../conn/connect.php';
 
+if ($_POST) {
+    $nome_completo = $_POST['nome_completo'];
+    $senha_usuario = md5($_POST['senha_usuario']);
+    $email = $_POST['email'];
+    $cpf = $_POST['cpf'];
+
+    $insereUsuario = "INSERT INTO tbusuarios 
+                (login_usuario, senha_usuario, nivel_usuario)
+                VALUES 
+                ('$email', '$senha_usuario', 'com');
+                ";
+
+    $lista = $conn->query("select * from tbusuarios order by id_usuario desc limit 1");
+    $row = $lista->fetch_assoc();
+    $id_usuario_fk = $row['id_usuario'];
+
+    $insereCliente = "INSERT INTO tbclientes 
+                    (nome, email, cpf, id_usuario_fk)
+                    VALUES 
+                    ('$nome_completo', '$email', '$cpf', '$id_usuario_fk');
+                    ";
+    $resultado = $conn->query($insereUsuario);
+    $resultado = $conn->query($insereCliente);
+}
 ?>
 
 <!DOCTYPE html>
@@ -63,9 +88,13 @@
                                         <input type="password" name="senha_usuario" id="senha_usuario" class="form-control" required autocomplete="off" minlength="8" placeholder="Digite sua senha">
                                     </p>
 
-                                    <div class="d-flex justify-content-between">
-                                        <a href="../index.php" class="btn btn-danger" role="btn">Voltar</a>
-                                        <input type="submit" value="Cadastrar" class="btn btn-danger">
+                                    <div class="row">
+                                        <span class="col-md-8">
+                                            <a href="../index.php" class="btn btn-danger" role="btn">Voltar</a>
+                                        </span>
+                                        <span class="col-md-4">
+                                            <input type="submit" value="Cadastrar" class="btn btn-danger">
+                                        </span>
                                     </div>
                                 </form>
                             </div><!-- fecha alert -->
