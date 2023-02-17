@@ -1,5 +1,5 @@
 <?php 
-include '../conn/connect.php';
+include '../connection/connect.php';
 // Iniciar a verificação do login
 if ($_POST) {
     $login = $_POST['login_usuario'];
@@ -21,7 +21,7 @@ if ($_POST) {
         if ($rowLogin['nivel_usuario'] == 'sup') {
             echo "<script>window.open('index.php','_self')</script>";
         } else {
-            echo "<script>window.open('../cliente/index.php?cliente=".$login."','_self')</script>";
+            echo "<script>window.open('../client/index.php?cliente=".$login."','_self')</script>";
         }
     } else {
         echo "<script>window.open('invasor.php','_self')</script>";

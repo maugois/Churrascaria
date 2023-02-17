@@ -1,6 +1,6 @@
 <?php 
 include 'acesso_com.php';
-include '../conn/connect.php';
+include '../connection/connect.php';
 
 if ($_POST) {
     $login_usuario = $_POST['login_usuario'];

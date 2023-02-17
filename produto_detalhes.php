@@ -1,5 +1,5 @@
 <?php 
-include 'conn/connect.php';
+include 'connection/connect.php';
 $busca_detalhe = $_GET['id_produto'];
 $produto_detalhe = $conn->query("select * from vw_tbprodutos where id_produto = '$busca_detalhe';");
 $row_detalhe = $produto_detalhe->fetch_assoc();

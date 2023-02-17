@@ -1,6 +1,6 @@
 <?php 
 include 'acesso_com.php';
-include '../conn/connect.php';
+include '../connection/connect.php';
 $lista = $conn->query("select * from vw_tbprodutos order by id_produto desc");
 $row = $lista->fetch_assoc();
 $rows = $lista->num_rows;

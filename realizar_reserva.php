@@ -1,5 +1,5 @@
 <?php
-include '../conn/connect.php';
+include 'connection/connect.php';
 $data = new DateTime();
 
 if ($_POST) {
@@ -44,7 +44,7 @@ if ($_POST) {
 
 // Após a gravação bem sucedida do produto, volta (atualiza) para lista 
 if (mysqli_insert_id($conn)) {
-    header('location: ../index.php');
+    header('location: index.php');
 }
 ?>
 
@@ -64,7 +64,7 @@ if (mysqli_insert_id($conn)) {
         <div class="row">
             <div class="col-xs-12 col-sm-offset-2 col-sm-6 col-md-8">
                 <h2 class="breadcrumb text-danger">
-                    <a class="text-decoration-none" href="../index.php">
+                    <a class="text-decoration-none" href="index.php">
                         <button class="btn btn-danger">
                             <span class="glyphicon glyphicon-chevron-left"></span>
                         </button>

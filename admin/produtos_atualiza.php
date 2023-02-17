@@ -1,6 +1,6 @@
 <?php 
 include 'acesso_com.php';
-include '../conn/connect.php';
+include '../connection/connect.php';
 
 if ($_POST) { 
     if ($_FILES['imagem_produto']['name']) {

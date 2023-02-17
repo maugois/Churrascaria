@@ -1,5 +1,5 @@
 <?php 
-include "conn/connect.php";
+include "connection/connect.php";
 $idTipo = $_GET['id_tipo'];
 $listaPorTipo = $conn->query("select * from vw_tbprodutos where id_tipo_produto = $idTipo;");
 $rowPorTipo = $listaPorTipo->fetch_assoc();

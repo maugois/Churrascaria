@@ -1,5 +1,5 @@
 <?php 
-include '../conn/connect.php';
+include '../connection/connect.php';
 
 if ($_POST) {
     $nome_completo = $_POST['nome_completo'];

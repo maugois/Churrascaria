@@ -1,6 +1,6 @@
 <?php 
 include 'acesso_com.php';
-include '../conn/connect.php';
+include '../connection/connect.php';
 $lista = $conn->query("select * from tbtipos order by id_tipo desc");
 $row = $lista->fetch_assoc();
 $rows = $lista->num_rows;

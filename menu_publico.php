@@ -1,5 +1,5 @@
 <?php 
-include "conn/connect.php";
+include "connection/connect.php";
 $lista_tipos = $conn->query("select * from tbtipos order by rotulo_tipo;"); 
 $rows_tipos = $lista_tipos->fetch_all();
 ?>
@@ -62,7 +62,7 @@ $rows_tipos = $lista_tipos->fetch_all();
                                     <!-- Modal footer -->
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-danger" data-dismiss="modal">Voltar</button>
-                                        <a type="button" class="btn btn-success" href="cliente/reserva_fazer.php">Reservar</a>
+                                        <a type="button" class="btn btn-success" href="realizar_reserva.php">Reservar</a>
                                     </div>
                                     
                                 </div>

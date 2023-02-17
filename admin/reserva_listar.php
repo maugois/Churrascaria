@@ -1,6 +1,6 @@
 <?php 
 include 'acesso_com.php';
-include '../conn/connect.php';
+include '../connection/connect.php';
 $lista = $conn->query("select * from tbmesas order by id_mesa desc");
 $row = $lista->fetch_assoc();
 $rows = $lista->num_rows;
