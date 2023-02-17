@@ -19,7 +19,7 @@ $rows = $lista->num_rows;
     <?php include "menu_adm.php"; ?>
     <main class="container">
         <h2 class="breadcrumb alert-danger">
-            <a class="text-decoration-none" href="adm_options.php">
+            <a class="text-decoration-none" href="index.php">
                 <button class="btn btn-danger">
                     <span class="glyphicon glyphicon-chevron-left"></span>
                 </button>

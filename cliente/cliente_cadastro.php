@@ -13,7 +13,7 @@
     <!-- Link para CSS específico -->
     <link rel="stylesheet" href="../css/estilo.css" type="text/css">
     
-    <title>Chuleta Quente - Login</title>
+    <title>Chuleta Quente - Cadastro</title>
 </head>
 
 <body class="fundofixo">
@@ -25,47 +25,47 @@
                         <h1 class="breadcrumb text-danger text-center">Faça seu cadastro</h1>
                         <div class="thumbnail">
                             <p class="text-info text-center" role="alert">
-                                <i class="fa-solid fa-pen-to-square fa-10x text-danger"></i>
+                                <i class="fas fa-users fa-8x text-danger"></i>
                             </p>
                             <br>
                             <div class="alert alert-danger" role="alert">
-                                <form action="login.php" name="form_login" id="form_login" method="POST" enctype="multipart/form-data">
+                                <form action="cliente_cadastro.php" name="form_cadastro" id="form_cadastro" method="POST" enctype="multipart/form-data">
 
                                     <label for="login_usuario">Nome completo:</label>
                                     <p class="input-group">
                                         <span class="input-group-addon">
                                             <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
                                         </span>
-                                        <input type="text" name="login_usuario" id="login_usuario" class="form-control" autofocus required autocomplete="off" placeholder="Digite seu login.">
+                                        <input type="text" name="nome_completo" id="nome_completo" class="form-control" autofocus required autocomplete="off" placeholder="Digite seu nome completo">
                                     </p>
 
                                     <label for="login_usuario">E-mail:</label>
                                     <p class="input-group">
                                         <span class="input-group-addon">
-                                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                                            <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
                                         </span>
-                                        <input type="text" name="login_usuario" id="login_usuario" class="form-control" autofocus required autocomplete="off" placeholder="Digite seu login.">
+                                        <input type="email" name="email" id="email" class="form-control" autofocus required autocomplete="off" placeholder="Digite o seu E-mail">
                                     </p>
 
                                     <label for="senha_usuario">CPF:</label>
                                     <p class="input-group">
                                         <span class="input-group-addon">
-                                            <span class="glyphicon glyphicon-qrcode text-info" aria-hidden="true"></span>
+                                            <span class="glyphicon glyphicon-book" aria-hidden="true"></span>
                                         </span>
-                                        <input type="password" name="senha_usuario" id="senha_usuario" class="form-control" required autocomplete="off" placeholder="Digite sua senha.">
+                                        <input type="text" name="cpf" id="cpf" class="form-control" required autocomplete="off" placeholder="Digite o seu CPF">
                                     </p>
 
                                     <label for="senha_usuario">Senha:</label>
                                     <p class="input-group">
                                         <span class="input-group-addon">
-                                            <span class="glyphicon glyphicon-qrcode text-info" aria-hidden="true"></span>
+                                            <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
                                         </span>
-                                        <input type="password" name="senha_usuario" id="senha_usuario" class="form-control" required autocomplete="off" placeholder="Digite sua senha.">
+                                        <input type="password" name="senha_usuario" id="senha_usuario" class="form-control" required autocomplete="off" minlength="8" placeholder="Digite sua senha">
                                     </p>
 
                                     <div class="d-flex justify-content-between">
-                                        <a href="../index.php" class="text-left btn btn-danger" role="btn">Voltar</a>
-                                        <input type="submit" value="Entrar" class="btn btn-danger">
+                                        <a href="../index.php" class="btn btn-danger" role="btn">Voltar</a>
+                                        <input type="submit" value="Cadastrar" class="btn btn-danger">
                                     </div>
                                 </form>
                             </div><!-- fecha alert -->

@@ -63,16 +63,16 @@ if ($_POST) {
                                         <span class="input-group-addon">
                                             <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
                                         </span>
-                                        <input type="text" name="login_usuario" id="login_usuario" class="form-control" autofocus required autocomplete="off" placeholder="Digite seu login.">
+                                        <input type="text" name="login_usuario" id="login_usuario" class="form-control" autofocus required autocomplete="off" placeholder="Digite seu login">
                                     </p>
                                     <label for="senha_usuario">Senha:</label>
                                     <p class="input-group">
                                         <span class="input-group-addon">
-                                            <span class="glyphicon glyphicon-qrcode text-info" aria-hidden="true"></span>
+                                            <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
                                         </span>
-                                        <input type="password" name="senha_usuario" id="senha_usuario" class="form-control" required autocomplete="off" placeholder="Digite sua senha.">
+                                        <input type="password" name="senha_usuario" id="senha_usuario" class="form-control" required autocomplete="off" placeholder="Digite sua senha">
                                     </p>
-                                    <a class="font-weight-bolder text-danger" href="../cliente/cliente_cadastro.php">Cadastra-se</a>
+                                    <a class="font-weight-bolder text-danger" href="../cliente/cliente_cadastro.php"><strong>Cadastra-se</strong></a>
                                     <p class="text-right">
                                         <input type="submit" value="Entrar" class="btn btn-danger">
                                     </p>

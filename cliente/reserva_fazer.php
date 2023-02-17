@@ -28,13 +28,13 @@ echo 'phpmail';
 
                 <div class="thumbnail">
                     <div class="alert alert-danger" role="alert">
-                        <form action="tipo_insere.php" method="post" name="form_tipo_insere" enctype="multipart/form-data" id="form_tipo_insere">
+                        <form action="reserva_fazer.php" method="post" name="form_reserva_fazer" enctype="multipart/form-data" id="form_reserva_fazer">
                             <label for="rotulo_tipo">Nome completo:</label>
                             <div class="input-group">
                                 <span class="input-group-addon">
                                     <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
                                 </span>
-                                <input type="text" name="rotulo_tipo" id="rotulo_tipo" class="form-control" placeholder="Digite o rótulo do Tipo" maxlength="100" required>
+                                <input type="text" name="nome_completo" id="nome_completo" class="form-control" placeholder="Digite seu nome completo" maxlength="100" required>
                             </div>
 
                             <label for="sigla_tipo">Email:</label>
@@ -43,7 +43,7 @@ echo 'phpmail';
                                     <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
                                 </span>
                                 
-                                <input type="text" name="sigla_tipo" id="sigla_tipo" class="form-control" placeholder="Digite a sigla do Tipo" maxlength="3" required>
+                                <input type="email" name="email" id="email" class="form-control" placeholder="Digite o seu E-mail" maxlength="3" required>
                             </div>
 
                             <label for="sigla_tipo">CPF:</label>
@@ -52,20 +52,20 @@ echo 'phpmail';
                                     <span class="glyphicon glyphicon-book" aria-hidden="true"></span>
                                 </span>
                                 
-                                <input type="text" name="sigla_tipo" id="sigla_tipo" class="form-control" placeholder="Digite a sigla do Tipo" maxlength="3" required>
+                                <input type="text" name="cpf" id="cpf" class="form-control" placeholder="Digite o seu CPF" maxlength="3" required>
                             </div>
 
                             <label for="sigla_tipo">Número de pessoas:</label>
                             <div class="input-group">
                                 <span class="input-group-addon">
-                                    <span class="glyphicon glyphicon-book" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
                                 </span>
                                 
-                                <input type="number" name="sigla_tipo" id="sigla_tipo" class="form-control" placeholder="Digite a sigla do Tipo" required>
+                                <input type="number" name="numero_pessoas" id="numero_pessoas" class="form-control" min="15" placeholder="Informe a quantidade de pessoas" required>
                             </div>
 
                             <hr>
-                            <input type="submit" name="cadastrar" id="cadastrar" class="btn btn-danger btn-block" value="Reservar">
+                            <input type="submit" name="reservar" id="reservar" class="btn btn-danger btn-block" value="Reservar">
                         </form>
                     </div>
                 </div>
