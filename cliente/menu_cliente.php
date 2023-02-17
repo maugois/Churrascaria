@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <title>Área Administrativa</title>
+    <title>Área do Cliente</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,7 +11,7 @@
     <!-- Link para CSS específico -->
     <link rel="stylesheet" href="../css/estilo.css">
 </head>
-<body>
+<body class="fundofixo">
     <nav class="nav navbar-inverse">
         <div class="container-fluid">
             <!-- Agrupamento para exibição Mobile -->
@@ -36,16 +36,15 @@
                         </button>
                     </li>
                     <li class="active"><a href="index.php">CLIENTE</a></li>
-                    <li><a href="produtos_lista.php"></a></li>
-                    <li><a href="tipo_listar.php"></a></li>
-                    <li><a href="usuario_listar.php"></a></li>
+                    <li><a href="cliente_lista.php">RESERVA</a></li>
+                    <li><a href="cliente_perfil.php">PERFIL</a></li>
                     <li class="active">
                         <a href="../index.php">
                             <span class="glyphicon glyphicon-home"></span>
                         </a>
                     </li>
                     <li>
-                        <a href="logout.php">
+                        <a href="../admin/logout.php">
                             <span class="glyphicon glyphicon-log-out"></span>
                         </a>
                     </li>

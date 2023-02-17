@@ -11,7 +11,7 @@ echo 'phpmail';
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <!-- Link para CSS específico -->
     <link rel="stylesheet" href="../css/estilo.css">
-    <title>Realizar pedido de reserva</title>
+    <title>Chuleta Quente - Pedido de reserva</title>
 </head>
 <body class="fundofixo d-flex justify-content">
     <main class="container">
