@@ -10,7 +10,7 @@ include '../admin/acesso_com.php';
   <title>Área do Cliente</title>
 </head>
 <body>
-  <?php include 'menu_cliente.php';?>
+  <?php include 'cliente_menu.php';?>
   <?php include 'cliente_options.php';?>
 </body>
 </html>

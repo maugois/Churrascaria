@@ -54,9 +54,9 @@ if (mysqli_insert_id($conn)) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Link arquivos Bootstrap CSS -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- Link para CSS específico -->
-    <link rel="stylesheet" href="../css/estilo.css">
+    <link rel="stylesheet" href="css/estilo.css">
     <title>Chuleta Quente - Pedido de reserva</title>
 </head>
 <body class="fundofixo d-flex justify-content">
@@ -113,14 +113,14 @@ if (mysqli_insert_id($conn)) {
                             <label for="sigla_tipo">Data da reserva:</label>
                             <div class="input-group">
                                 <span class="input-group-addon">
-                                    <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
                                 </span>
                                 
                                 <input type="datetime-local" name="data_reserva" id="data_reserva" class="form-control" min="<?php ?>" max="<?php ?>" required>
                             </div>
                             
                             <div>
-                                <p>Sua reserva já foi feita? <a href="status_reserva.php">Clique aqui!</a> para conferir o seu status.</p>
+                                <p>Sua reserva já foi feita? <a class="font-weight-bolder text-danger" href="status_reserva.php"><strong>Clique aqui!</strong></a> para conferir o seu status.</p>
                             </div>
                             <hr>
                             <input type="submit" name="reservar" id="reservar" class="btn btn-danger btn-block" value="Reservar">
