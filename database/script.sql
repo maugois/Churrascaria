@@ -71,7 +71,7 @@ INSERT INTO `tbusuarios`
 	VALUES
 		(1, 'senac', '1234', 'sup'),
 		(2, 'joao', '456', 'com'),
-		(3, 'maria', '789', 'cli'),
+		(3, 'maria', '789', 'com'),
 		(4, 'Maurício', '1234', 'sup');
 
 -- Índices de tabela `tbtipos`
@@ -114,9 +114,9 @@ UPDATE tbusuarios set senha_usuario = md5(senha_usuario) where id_usuario betwee
 ALTER TABLE tbusuarios CHANGE COLUMN senha_usuario senha_usuario VARCHAR(32);
 
 UPDATE tbusuarios set senha_usuario = '1234' where id_usuario = 1; 
-UPDATE tbusuarios set senha_usuario = '1234' where id_usuario = 1;
-UPDATE tbusuarios set senha_usuario = '789' where id_usuario = 1;
-UPDATE tbusuarios set senha_usuario = '456' where id_usuario = 1;
+UPDATE tbusuarios set senha_usuario = '1234' where id_usuario = 2;
+UPDATE tbusuarios set senha_usuario = '789' where id_usuario = 3;
+UPDATE tbusuarios set senha_usuario = '456' where id_usuario = 4;
 UPDATE tbusuarios set senha_usuario = md5(senha_usuario) where id_usuario between 1 and 4;
 
 SET SQL_SAFE_UPDATES = 0;

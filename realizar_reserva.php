@@ -4,45 +4,66 @@ $data = new DateTime();
 
 if ($_POST) {
     $cpf = $_POST['cpf'];
-
+    // Consulta para ver se o cliente já é cadastrado 
     $listaCli = $conn->query("select cpf from tbclientes where cpf = '$cpf'");
     $rowCli = $listaCli->fetch_assoc();
     $rowsCli = $listaCli->num_rows;
-
+    // Caso o não tiver o cliente cadastrado 
     if ($rowsCli < 1) {
         $nome_completo = $_POST['nome_completo'];
         $email = $_POST['email'];
         $cpf = $_POST['cpf'];
-
+        $numero_pessoas = $_POST['numero_pessoas'];
+        $data_reserva = $_POST['data_reserva'];
+        // Inserindo primeiro o usuario para assim poder associar ele a reserva 
         $insereCliente = "INSERT INTO tbclientes 
         (nome, email, cpf)
         VALUES 
         ('$nome_completo', '$email', '$cpf');
         ";
-
         $resultado = $conn->query($insereCliente);
+        // Consulta do ultimo cliente cadastrado 
+        $lista = $conn->query("select id_cliente from tbclientes order by id_cliente desc limit 1");
+        $row = $lista->fetch_assoc();
+        $id_cliente = $row["id_cliente"];
+        // Inserindo a reserva com o cliente já associado 
+        $inserePedidoReservas = "INSERT INTO tbpedidoreservas 
+        (num_pessoas, data_reserva, status_pedido, id_cliente_fk)
+        VALUES 
+        ($numero_pessoas, $data_reserva, 'Enviado', $id_cliente);
+        ";
+        $resultado = $conn->query($inserePedidoReservas);
     }
+    // Caso tiver o cliente cadastrado
+    if ($rowCli > 0) {
+        $numero_pessoas = $_POST['numero_pessoas'];
+        $data_reserva = $_POST['data_reserva'];
+        // Consultando o id para associar o cliente ao pedido 
+        $lista = $conn->query("select id_cliente from tbclientes where cpf = '$cpf'");
+        $row = $lista->fetch_assoc();
+        $id_cliente = $row["id_cliente"];
+
+        $inserePedidoReservas = "INSERT INTO tbpedidoreservas 
+                    (num_pessoas, data_reserva, status_pedido, id_cliente_fk)
+                    VALUES 
+                    ($numero_pessoas, $data_reserva, 'Enviado', $id_cliente);
+                    ";
+
+        $resultado = $conn->query($inserePedidoReservas);
+    }
+
+    // Consultando o id do clinte
+    $listaHcli = $conn->query("select id_cliente from tbclientes where cpf = '$cpf'");
+    $rowHcli = $listaHcli->fetch_assoc();
+    // Consultando o id do pedido 
+    $listaHped = $conn->query("select id_pedido_reservas from tbpedidoreservas order by desc limit 1");
+    $rowHped = $listaHped->fetch_assoc();
+    // Inserindo o hash code 
+    $hashCode = ("CH".$rowHped['id_pedido_reservas']."".$rowHcli['id_cliente']."P");
+    $resultado = $conn->query("INSERT INTO tbpedidoreservas (hash_code) VALUES ('$hash_code');");
 }
 
-if ($_POST) {
-    $numero_pessoas = $_POST['numero_pessoas'];
-    $data_reserva = $_POST['data_reserva'];
-
-    $lista = $conn->query("select id_cliente from tbclientes order by id_cliente desc limit 1");
-    $row = $lista->fetch_assoc();
-    $rows = $lista->num_rows;
-    $id_cliente = $row["id_cliente"];
-
-    $inserePedidoReservas = "INSERT INTO tbpedidoreservas 
-                (num_pessoas, data_reserva, status_pedido, id_cliente_fk)
-                VALUES 
-                ('$numero_pessoas', '$data_reserva', 'Enviado', '$id_cliente');
-                ";
-
-    $resultado = $conn->query($inserePedidoReservas);
-}
-
-// Após a gravação bem sucedida do produto, volta (atualiza) para lista 
+// Após a gravação bem sucedida 
 if (mysqli_insert_id($conn)) {
     header('location: index.php');
 }
@@ -74,7 +95,7 @@ if (mysqli_insert_id($conn)) {
 
                 <div class="thumbnail">
                     <div class="alert alert-danger" role="alert">
-                        <form action="reserva_fazer.php" method="post" name="form_reserva_fazer" enctype="multipart/form-data" id="form_reserva_fazer">
+                        <form action="realizar_reserva.php" method="post" name="form_reserva_fazer" enctype="multipart/form-data" id="form_reserva_fazer">
                             <label for="rotulo_tipo">Nome completo:</label>
                             <div class="input-group">
                                 <span class="input-group-addon">
@@ -116,7 +137,7 @@ if (mysqli_insert_id($conn)) {
                                     <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
                                 </span>
                                 
-                                <input type="datetime-local" name="data_reserva" id="data_reserva" class="form-control" min="<?php ?>" max="<?php ?>" required>
+                                <input type="datetime-local" name="data_reserva" id="data_reserva" class="form-control" min="<?php echo ($date - 2);?>" max="<?php echo ($date + 90);?>" required>
                             </div>
                             
                             <div>
