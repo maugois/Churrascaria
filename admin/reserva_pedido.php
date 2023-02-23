@@ -22,34 +22,25 @@ $rows = $lista->num_rows;
 <body class="fundofixo">
 <?php include "menu_adm.php"; ?>
     <main class="container">
-    <h2 class="breadcrumb alert-danger">
+        <h2 class="breadcrumb alert-danger">
             <a class="text-decoration-none" href="index.php">
                 <button class="btn btn-danger">
                     <span class="glyphicon glyphicon-chevron-left"></span>
                 </button>
             </a>    
-            <strong>Lista - Reservas</strong>
+            <strong>Lista - Pedido de Reservas</strong>
         </h2>
         <table class="table table-hover table-condensed tb-opacidade bg-warning" style="border-radius: 5px;"> 
             <thead>
                 <th class="text-center hidden">ID</th>
-                <th class="text-center">MESA</th>
-                <th class="text-center">STATUS DA RESERVA</th>
+                <th class="text-center">QUANTIDADE DE PESSOAS</th>
+                <th class="text-center">DATA DO PEDIDO</th>
+                <th class="text-center">STATUS DO PEDIDO</th>
                 <th>
-                    <button target="_self" class="btn btn-success btn-xs" role="button">
+                    <a href="mesas_insere.php" target="_self" class="btn btn-block btn-primary btn-xs" role="button">
                         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                        <span class="hidden-xs">CONFIRMADAS</span>
-                    </button>
-
-                    <button target="_self" class="btn btn-danger btn-xs" role="button">
-                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                        <span class="hidden-xs">CANCELADAS</span>
-                    </button>
-
-                    <button href="mesas_insere.php" target="_self" class="btn btn-primary btn-xs" role="button">
-                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                        <span class="hidden-xs">EXPIRADAS</span>
-                    </button>
+                        <span class="hidden-xs">ADICIONAR</span>
+                    </a>
                 </th>
             </thead>
             
@@ -57,22 +48,34 @@ $rows = $lista->num_rows;
            	        <!-- início estrutura repetição -->
                     <?php do {?>
                     <tr>
-                    <td class="text-center hidden">
-                            <?php echo 'a';?>
+                        <td class="text-center hidden">
+                            <?php echo $row[''];?>
                         </td>
 
 
                         <td class="text-center">
-                            <?php echo 'a';?>
+                            <?php echo $row['id_cliente'];?>
                         </td>
 
                         
                         <td class="text-center text-uppercase">
-                            <?php echo 'a';?>    
+                            <?php echo $row['id_cliente']?>    
                         </td>
 
                         <td class="text-center text-uppercase">
-                            <?php echo 'a';?>    
+                            <?php echo $row['id_cliente']?>    
+                        </td>
+
+                        <td>
+                            <a href="mesas_atualizar.php?id_mesa=<?php echo $row['id_cliente']?>" role="button" class="btn btn-success btn-block btn-xs"> 
+                                <span class="glyphicon glyphicon-refresh"></span>
+                                <span class="hidden-xs">CONFIRMAR</span>
+                            </a>
+                            
+                            <button data-nome="<?php echo $row['id_cliente']?>" data-id="<?php echo $row['id_cliente']?>" class="delete btn btn-xs btn-block btn-danger">
+                                <span class="glyphicon glyphicon-trash"></span>
+                                <span class="hidden-xs">RECUSAR</span>
+                            </button>
                         </td>
                     </tr>
                     <?php } while ($row = $lista->fetch_assoc());?>

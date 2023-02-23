@@ -121,6 +121,35 @@
         </div><!-- fecha col -->
         <!-- fecha ADM USUÁRIOS -->
 
+        <!-- ADM RESERVAS PEDIDOS -->
+        <div class="col-sm-6 col-md-4">
+            <div class="thumbnail alert-primary">
+                <br>
+                <div class="alert-primary">
+
+                    <div class="btn-group btn-group-justified" role="group">
+                        <div class="btn-group">
+                            <button class="btn btn-default disabled" role="alert" style="cursor: default;">
+                                PEDIDOS DE RESERVAS
+                            </button>
+                        </div><!-- fecha btn-group -->
+                    </div><!-- fecha btn-group-justified -->
+
+                    <div class="btn-group btn-group-justified" role="group">
+                        <div class="btn-group">
+                            <a href="reserva_pedido.php">
+                                <button class="btn btn-primary">
+                                    LISTAR
+                                </button>
+                            </a>
+                        </div><!-- fecha btn-group -->
+                    </div><!-- fecha btn-group-justified -->
+
+                </div><!-- fecha alert-danger -->
+            </div><!-- fecha thumbnail -->
+        </div><!-- fecha col -->
+        <!-- fecha ADM RESERVAS PEDIDOS -->
+
         <!-- ADM RESERVAS -->
         <div class="col-sm-6 col-md-4">
             <div class="thumbnail alert-success">
