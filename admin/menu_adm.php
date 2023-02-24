@@ -39,6 +39,7 @@
                     <li><a href="produtos_lista.php">PRODUTOS</a></li>
                     <li><a href="tipo_listar.php">TIPOS</a></li>
                     <li><a href="usuario_listar.php">USUÁRIOS</a></li>
+                    <li><a href="reserva_pedido.php">PEDIDOS</a></li>
                     <li><a href="reserva_listar.php">RESERVAS</a></li>
                     <li class="active">
                         <a href="../index.php">

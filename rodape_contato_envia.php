@@ -19,15 +19,15 @@ try
     $mail->Password = 'churrasco1234';                          // SMTP senha
 
     // Define o remetente
-    $mail->setFrom('churascaria.chuleta@outlook.com', 'Churrascaria Chuleta');
+    $mail->setFrom('churascaria.chuleta@outlook.com', 'Churrascaria Chuleta');        // Quem vai enviar o email
 
     //Destinatario
-    $mail->addAddress('churascaria.chuleta@outlook.com', 'Churrascaria Chuleta');     // Pra quem você quer enviar o email, nome é opcional
+    $mail->addAddress('churascaria.chuleta@outlook.com', 'Churrascaria Chuleta');     // Pra quem você quer enviar o email
 
     // Conteúdo da mensagem
     $mail->Subject = 'CONTATO';
-    $mail->Body    = '<b>Olá Churrascaria Chuleta!</b><br><hr><br>'.$_POST['comentario_contato'];
-    $mail->AltBody = '<b>Olá Churrascaria Chuleta!</b><br><hr><br>'.$_POST['comentario_contato'];
+    $mail->Body    = '<b>Olá Churrascaria Chuleta Quente!</b><br><hr>'.$_POST['nome_contato'].' - '.$_POST['email_contato'].'<br><br>'.$_POST['comentario_contato'];
+    $mail->AltBody = '<b>Olá Churrascaria Chuleta Quente!</b><br><hr>'.$_POST['nome_contato'].' - '.$_POST['email_contato'].'<br><br>'.$_POST['comentario_contato'];
     $mail->CharSet = 'UTF-8';
     $mail->Debugoutput = 'html';
     $mail->setLanguage('pt');
@@ -40,4 +40,6 @@ catch (Exception $e)
 {
     echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
 }
+
+header('location:index.php#contato')
 ?>
