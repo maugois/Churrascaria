@@ -1,7 +1,7 @@
 <?php 
 include 'acesso_com.php';
 include '../connection/connect.php';
-$lista = $conn->query("select * from tbclientes order by id_cliente desc");
+$lista = $conn->query("select * from tbpedidoreservas order by id_pedido_reservas desc");
 $row = $lista->fetch_assoc();
 $rows = $lista->num_rows;
 
@@ -44,30 +44,30 @@ $rows = $lista->num_rows;
                     <?php do {?>
                     <tr>
                         <td class="text-center hidden">
-                            <?php echo $row[''];?>
+                            <?php echo $row['id_pedido_reserva'];?>
                         </td>
 
 
                         <td class="text-center">
-                            <?php echo $row['id_cliente'];?>
+                            <?php echo $row['num_pessoas'];?>
                         </td>
 
                         
                         <td class="text-center text-uppercase">
-                            <?php echo $row['id_cliente']?>    
+                            <?php echo $row['data_reserva']?>    
                         </td>
 
                         <td class="text-center text-uppercase">
-                            <?php echo $row['id_cliente']?>    
+                            <?php echo $row['status_pedido']?>    
                         </td>
 
                         <td>
-                            <button data-nome="<?php echo $row['id_cliente']?>" data-id="<?php echo $row['id_cliente']?>" class="confirmar btn btn-success btn-block btn-xs"> 
+                            <button data-nome="<?php echo $row['id_pedido_reservas']?>" data-id="<?php echo $row['id_pedido_reservas']?>" class="confirmar btn btn-success btn-block btn-xs"> 
                                 <span class="glyphicon glyphicon-refresh"></span>
                                 <span class="hidden-xs">CONFIRMAR</span>
                             </button>
                             
-                            <button data-nome="<?php echo $row['id_cliente']?>" data-id="<?php echo $row['id_cliente']?>" class="recusar btn btn-xs btn-block btn-danger">
+                            <button data-nome="<?php echo $row['id_pedido_reservas']?>" data-id="<?php echo $row['id_pedido_reservas']?>" class="recusar btn btn-xs btn-block btn-danger">
                                 <span class="glyphicon glyphicon-trash"></span>
                                 <span class="hidden-xs">RECUSAR</span>
                             </button>

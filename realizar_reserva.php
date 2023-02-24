@@ -1,6 +1,21 @@
 <?php
 include 'connection/connect.php';
-$data = new DateTime();
+
+// Fazendo a limitação da data da reserva
+
+// Obtém a data atual
+$min = new DateTime();
+$max = new DateTime();
+
+// Adiciona dois dias
+$min->add(new DateInterval('P2D'));
+
+// Adicionar 90 dias à data atual
+$max->add(new DateInterval('P90D'));
+
+// Formata a data para o padrão
+$minDate = $min->format('Y-m-d');
+$maxDate = $max->format('Y-m-d');
 
 if ($_POST) {
     $cpf = $_POST['cpf'];
@@ -56,11 +71,11 @@ if ($_POST) {
     $listaHcli = $conn->query("select id_cliente from tbclientes where cpf = '$cpf'");
     $rowHcli = $listaHcli->fetch_assoc();
     // Consultando o id do pedido 
-    $listaHped = $conn->query("select id_pedido_reservas from tbpedidoreservas order by desc limit 1");
+    $listaHped = $conn->query("select id_pedido_reservas from tbpedidoreservas order by id_pedido_reservas desc limit 1");
     $rowHped = $listaHped->fetch_assoc();
     // Inserindo o hash code 
-    $hashCode = ("CH".$rowHped['id_pedido_reservas']."".$rowHcli['id_cliente']."P");
-    $resultado = $conn->query("INSERT INTO tbpedidoreservas (hash_code) VALUES ('$hash_code');");
+    $hashCode = ("#CH-".$rowHped['id_pedido_reservas']."".$rowHcli['id_cliente']."PR".uniqid());
+    $resultado = $conn->query("UPDATE tbpedidoreservas SET hash_code = '$hashCode' WHERE id_cliente_fk = ".$rowHcli['id_cliente'].";");
 }
 
 // Após a gravação bem sucedida 
@@ -137,14 +152,14 @@ if (mysqli_insert_id($conn)) {
                                     <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
                                 </span>
                                 
-                                <input type="datetime-local" name="data_reserva" id="data_reserva" class="form-control" min="<?php echo ($date - 2);?>" max="<?php echo ($date + 90);?>" required>
+                                <input type="date" name="data_reserva" id="data_reserva" class="form-control" min="<?php echo $minDate ?>" max="<?php echo $maxDate ?>" required>
                             </div>
                             
                             <div>
                                 <p>Sua reserva já foi feita? <a class="font-weight-bolder text-danger" href="status_reserva.php"><strong>Clique aqui!</strong></a> para conferir o seu status.</p>
                             </div>
                             <hr>
-                            <input type="submit" name="reservar" id="reservar" class="btn btn-danger btn-block" value="Reservar">
+                            <input type="submit" onclick="" name="reservar" id="reservar" class="btn btn-danger btn-block" value="Reservar">
                         </form>
                     </div>
                 </div>
