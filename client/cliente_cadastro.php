@@ -77,7 +77,7 @@ if (mysqli_insert_id($conn)) {
                                         <span class="input-group-addon">
                                             <span class="glyphicon glyphicon-book" aria-hidden="true"></span>
                                         </span>
-                                        <input type="text" name="cpf" id="cpf" class="form-control" required autocomplete="off" placeholder="Digite o seu CPF">
+                                        <input type="text" name="cpf" id="cpf" class="form-control" required autocomplete="off" placeholder="Digite o seu CPF" oninput="mascara(this)">
                                     </p>
 
                                     <label for="senha_usuario">Senha:</label>
@@ -85,7 +85,7 @@ if (mysqli_insert_id($conn)) {
                                         <span class="input-group-addon">
                                             <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
                                         </span>
-                                        <input type="password" name="senha_usuario" id="senha_usuario" class="form-control" required autocomplete="off" minlength="8" placeholder="Digite sua senha">
+                                        <input type="password" name="senha_usuario" id="senha_usuario" class="form-control" required autocomplete="off" minlength="4" placeholder="Digite sua senha">
                                     </p>
 
                                     <div class="row">
@@ -105,10 +105,24 @@ if (mysqli_insert_id($conn)) {
         </section>
     </main>
 
+    <script>
+        function mascara(i){
 
+            var v = i.value;
+
+            if(isNaN(v[v.length-1])){ // impede entrar outro caractere que não seja número
+                i.value = v.substring(0, v.length-1);
+                return;
+            }
+
+            i.setAttribute("maxlength", "14");
+            if (v.length == 3 || v.length == 7) i.value += ".";
+            if (v.length == 11) i.value += "-";
+
+        }
+    </script>
     <!-- Link arquivos Bootstrap js -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
 </body>
-
 </html>

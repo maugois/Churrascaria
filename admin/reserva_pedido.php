@@ -1,13 +1,9 @@
 <?php 
 include 'acesso_com.php';
 include '../connection/connect.php';
-$lista = $conn->query("select * from tbpedidoreservas order by id_pedido_reservas desc");
+$lista = $conn->query("select * from tbpedidoreservas where status_pedido = 'Enviado' order by id_pedido_reservas desc");
 $row = $lista->fetch_assoc();
 $rows = $lista->num_rows;
-
-
-// echo $disabled_mesa->num_rows > 0 ? 'disabled' : '';
-// $disabled_mesa = $conn->query("select id_cliente from tbclientes id_cliente = ".$row['id_cliente']." limit 1;");
 ?>
 
 <!DOCTYPE html>

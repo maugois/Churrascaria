@@ -14,8 +14,8 @@ $min->add(new DateInterval('P2D'));
 $max->add(new DateInterval('P90D'));
 
 // Formata a data para o padrão
-$minDate = $min->format('Y-m-d');
-$maxDate = $max->format('Y-m-d');
+$minDate = $min->format('Y-m-d h:i');
+$maxDate = $max->format('Y-m-d h:i');
 
 if ($_POST) {
     $cpf = $_POST['cpf'];
@@ -29,7 +29,8 @@ if ($_POST) {
         $email = $_POST['email'];
         $cpf = $_POST['cpf'];
         $numero_pessoas = $_POST['numero_pessoas'];
-        $data_reserva = $_POST['data_reserva'];
+        $data = new DateTime($_POST['data_reserva']);
+        $data_reserva = $data->format('Y-m-d h:i:s');
         // Inserindo primeiro o usuario para assim poder associar ele a reserva 
         $insereCliente = "INSERT INTO tbclientes 
         (nome, email, cpf)
@@ -45,14 +46,15 @@ if ($_POST) {
         $inserePedidoReservas = "INSERT INTO tbpedidoreservas 
         (num_pessoas, data_reserva, status_pedido, id_cliente_fk)
         VALUES 
-        ($numero_pessoas, $data_reserva, 'Enviado', $id_cliente);
+        ($numero_pessoas, '$data_reserva', 'Enviado', $id_cliente);
         ";
         $resultado = $conn->query($inserePedidoReservas);
     }
     // Caso tiver o cliente cadastrado
     if ($rowCli > 0) {
         $numero_pessoas = $_POST['numero_pessoas'];
-        $data_reserva = $_POST['data_reserva'];
+        $data = new DateTime($_POST['data_reserva']);
+        $data_reserva = $data->format('Y-m-d h:i:s');
         // Consultando o id para associar o cliente ao pedido 
         $lista = $conn->query("select id_cliente from tbclientes where cpf = '$cpf'");
         $row = $lista->fetch_assoc();
@@ -61,7 +63,7 @@ if ($_POST) {
         $inserePedidoReservas = "INSERT INTO tbpedidoreservas 
                     (num_pessoas, data_reserva, status_pedido, id_cliente_fk)
                     VALUES 
-                    ($numero_pessoas, $data_reserva, 'Enviado', $id_cliente);
+                    ($numero_pessoas, '$data_reserva', 'Enviado', $id_cliente);
                     ";
 
         $resultado = $conn->query($inserePedidoReservas);
@@ -134,7 +136,7 @@ if (mysqli_insert_id($conn)) {
                                     <span class="glyphicon glyphicon-book" aria-hidden="true"></span>
                                 </span>
                                 
-                                <input type="text" name="cpf" id="cpf" class="form-control" placeholder="Digite o seu CPF" required>
+                                <input type="text" name="cpf" id="cpf" class="form-control" placeholder="Digite o seu CPF" oninput="mascara(this)" required>
                             </div>
 
                             <label for="sigla_tipo">Número de pessoas:</label>
@@ -143,7 +145,7 @@ if (mysqli_insert_id($conn)) {
                                     <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
                                 </span>
                                 
-                                <input type="number" name="numero_pessoas" id="numero_pessoas" class="form-control" placeholder="Informe a quantidade de pessoas" required>
+                                <input type="number" name="numero_pessoas" id="numero_pessoas" class="form-control" placeholder="Informe a quantidade de pessoas" min="1" max="20" required>
                             </div>
 
                             <label for="sigla_tipo">Data da reserva:</label>
@@ -152,7 +154,7 @@ if (mysqli_insert_id($conn)) {
                                     <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
                                 </span>
                                 
-                                <input type="date" name="data_reserva" id="data_reserva" class="form-control" min="<?php echo $minDate ?>" max="<?php echo $maxDate ?>" required>
+                                <input type="datetime-local" name="data_reserva" id="data_reserva" class="form-control" min="<?php echo $minDate ?>" max="<?php echo $maxDate ?>" required>
                             </div>
                             
                             <div>
@@ -166,5 +168,21 @@ if (mysqli_insert_id($conn)) {
             </div>
         </div>
     </main>
+    <script>
+        function mascara(i){
+
+            var v = i.value;
+
+            if(isNaN(v[v.length-1])){ // impede entrar outro caractere que não seja número
+                i.value = v.substring(0, v.length-1);
+                return;
+            }
+
+            i.setAttribute("maxlength", "14");
+            if (v.length == 3 || v.length == 7) i.value += ".";
+            if (v.length == 11) i.value += "-";
+
+        }
+    </script>
 </body>
 </html>
