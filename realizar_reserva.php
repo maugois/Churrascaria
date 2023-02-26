@@ -112,7 +112,7 @@ if (mysqli_insert_id($conn)) {
 
                 <div class="thumbnail">
                     <div class="alert alert-danger" role="alert">
-                        <form action="realizar_reserva.php" method="post" name="form_reserva_fazer" enctype="multipart/form-data" id="form_reserva_fazer">
+                        <form action="reserva_envia.php" method="post" name="form_reserva_fazer" enctype="multipart/form-data" id="form_reserva_fazer">
                             <label for="rotulo_tipo">Nome completo:</label>
                             <div class="input-group">
                                 <span class="input-group-addon">
@@ -198,7 +198,7 @@ if (mysqli_insert_id($conn)) {
                 success: function(data){              
                     $('.modal').html(data);
                     $('#myModal').modal('show');
-                    
+
                     $('.reservar').on('click',function(){
                     $('a.reservar-yes').attr('href','index.php'); //chama o arquivo php para excluir o produto
                     $('#modalEdit').modal('show'); // chamar o modal
