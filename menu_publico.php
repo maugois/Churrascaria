@@ -57,14 +57,14 @@ $rows_tipos = $lista_tipos->fetch_all();
                                             </li>
                                         </ul>
                                         
+                                        <input type="checkbox" name="termos" id="termos" value="termos" onclick="termos();">&nbsp;<label for="termos"><b>Li e concordo com os termos.</b></label>
                                     </div>
 
                                     <!-- Modal footer -->
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-danger" data-dismiss="modal">Voltar</button>
-                                        <a type="button" class="btn btn-success" href="realizar_reserva.php">Reservar</a>
+                                        <a type="button" class="btn btn-success disabled" id="reserva-btn"  href="realizar_reserva.php">Reservar</a>
                                     </div>
-                                    
                                 </div>
                             </div>
                         </div>
@@ -115,5 +115,17 @@ $rows_tipos = $lista_tipos->fetch_all();
             </div>
         </div>
     </nav>
+    <script>
+        function termos() {
+            let check = document.getElementById('termos');
+            let btn = document.getElementById('reserva-btn');
+
+            if (check.checked == true) {
+                return btn.classList.remove("disabled");
+            } else {
+                return btn.classList.add("disabled");
+            }
+        }
+    </script>
 </body>
 </html>
