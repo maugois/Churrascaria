@@ -32,6 +32,30 @@
             <a name="contato"></a>
         </footer>
     </main>
+    <!-- inicio do modal para excluir... -->
+    <div class="modal fade" id="modalEdit" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button class="close" data-dismiss="modal" type="button">
+                        &times;
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Deseja mesmo excluir o usuário?
+                    <h4><span class="nome text-danger"></span></h4>
+                </div>
+                <div class="modal-footer">
+                    <a href="#" type="button" class="btn btn-danger delete-yes">
+                        Confirmar
+                    </a>
+                    <button class="btn btn-success" data-dismiss="modal">
+                        Cancelar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 <!-- link para bootstrap -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

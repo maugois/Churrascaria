@@ -2,7 +2,6 @@
 include 'connection/connect.php';
 
 // Fazendo a limitação da data da reserva
-
 // Obtém a data atual
 $min = new DateTime();
 $max = new DateTime();
@@ -78,11 +77,10 @@ if ($_POST) {
     // Inserindo o hash code 
     $hashCode = ("#CH-".$rowHped['id_pedido_reservas']."".$rowHcli['id_cliente']."PR".uniqid());
     $resultado = $conn->query("UPDATE tbpedidoreservas SET hash_code = '$hashCode' WHERE id_cliente_fk = ".$rowHcli['id_cliente'].";");
-}
-
-// Após a gravação bem sucedida 
-if (mysqli_insert_id($conn)) {
-    header('location: index.php');
+    // Após a gravação bem sucedida 
+    if (mysqli_insert_id($conn)) {
+        header('location: index.php#modalEdit');
+    }  
 }
 ?>
 
@@ -112,7 +110,7 @@ if (mysqli_insert_id($conn)) {
 
                 <div class="thumbnail">
                     <div class="alert alert-danger" role="alert">
-                        <form action="reserva_envia.php" method="post" name="form_reserva_fazer" enctype="multipart/form-data" id="form_reserva_fazer">
+                        <form action="realizar_reserva.php" method="post" name="form_reserva_fazer" enctype="multipart/form-data" id="form_reserva_fazer">
                             <label for="rotulo_tipo">Nome completo:</label>
                             <div class="input-group">
                                 <span class="input-group-addon">
@@ -186,26 +184,8 @@ if (mysqli_insert_id($conn)) {
     </script>
     <script type="text/javascript">
         $('.reservar').on('click',function(){
-            $('a.reservar-yes').attr('href','index.php'); //chama o arquivo php para excluir o produto
-            $('#modalEdit').modal('show'); // chamar o modal
+            $('index.php#modalEdit').modal('show'); // chamar o modal
         });
-
-        function abreModal(){
-            $.ajax({
-                type: 'POST',
-                //Caminho do arquivo do seu modal
-                url: 'index.php',
-                success: function(data){              
-                    $('.modal').html(data);
-                    $('#myModal').modal('show');
-
-                    $('.reservar').on('click',function(){
-                    $('a.reservar-yes').attr('href','index.php'); //chama o arquivo php para excluir o produto
-                    $('#modalEdit').modal('show'); // chamar o modal
-                    });
-                }
-            });
-        }
     </script>
 </body>
 </html>
