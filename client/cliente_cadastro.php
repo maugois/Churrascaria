@@ -105,7 +105,7 @@ if (mysqli_insert_id($conn)) {
         </section>
     </main>
 
-    <script>
+    <script type="text/javascript">
         function mascara(i){
 
             var v = i.value;

@@ -161,14 +161,14 @@ if (mysqli_insert_id($conn)) {
                                 <p>Sua reserva já foi feita? <a class="font-weight-bolder text-danger" href="validacao_status.php"><strong>Clique aqui!</strong></a> para conferir o seu status.</p>
                             </div>
                             <hr>
-                            <input type="submit" onclick="" name="reservar" id="reservar" class="btn btn-danger btn-block" value="Reservar">
+                            <input type="submit" name="reservar" id="reservar" class="btn btn-danger btn-block reservar" value="Reservar">
                         </form>
                     </div>
                 </div>
             </div>
         </div>
     </main>
-    <script>
+    <script type="text/javascript">
         function mascara(i){
 
             var v = i.value;
@@ -182,6 +182,29 @@ if (mysqli_insert_id($conn)) {
             if (v.length == 3 || v.length == 7) i.value += ".";
             if (v.length == 11) i.value += "-";
 
+        }
+    </script>
+    <script type="text/javascript">
+        $('.reservar').on('click',function(){
+            $('a.reservar-yes').attr('href','index.php'); //chama o arquivo php para excluir o produto
+            $('#modalEdit').modal('show'); // chamar o modal
+        });
+
+        function abreModal(){
+            $.ajax({
+                type: 'POST',
+                //Caminho do arquivo do seu modal
+                url: 'index.php',
+                success: function(data){              
+                    $('.modal').html(data);
+                    $('#myModal').modal('show');
+                    
+                    $('.reservar').on('click',function(){
+                    $('a.reservar-yes').attr('href','index.php'); //chama o arquivo php para excluir o produto
+                    $('#modalEdit').modal('show'); // chamar o modal
+                    });
+                }
+            });
         }
     </script>
 </body>
