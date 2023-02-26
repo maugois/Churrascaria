@@ -7,19 +7,35 @@ if ($_POST) {
     $email = $_POST['email'];
     $cpf = $_POST['cpf'];
 
-    $insereUsuario = "INSERT INTO tbusuarios 
-                (login_usuario, senha_usuario, nivel_usuario)
-                VALUES 
-                ('$cpf', '$senha_usuario', 'com');
-                ";
-
-    $insereCliente = "INSERT INTO tbclientes 
-                    (nome, email, cpf)
+    $listaCli = $conn->query("select cpf from tbclientes where cpf = '$cpf'");
+    $rowCli = $listaCli->fetch_assoc();
+    $rowsCli = $listaCli->num_rows;
+    
+    if ($rowsCli > 0) {
+        $insereUsuario = "INSERT INTO tbusuarios 
+                    (login_usuario, senha_usuario, nivel_usuario)
                     VALUES 
-                    ('$nome_completo', '$email', '$cpf');
+                    ('$cpf', '$senha_usuario', 'com');
                     ";
-    $resultado = $conn->query($insereUsuario);
-    $resultado = $conn->query($insereCliente);
+        $resultado = $conn->query($insereUsuario);
+    }
+
+    if ($rowCli < 1) {
+        $insereUsuario = "INSERT INTO tbusuarios 
+                        (login_usuario, senha_usuario, nivel_usuario)
+                        VALUES 
+                        ('$cpf', '$senha_usuario', 'com');
+                        ";
+        
+        $insereCliente = "INSERT INTO tbclientes 
+                        (nome, email, cpf)
+                        VALUES 
+                        ('$nome_completo', '$email', '$cpf');
+                        ";
+
+        $resultado = $conn->query($insereUsuario);
+        $resultado = $conn->query($insereCliente);
+    }
 }
 
 if (mysqli_insert_id($conn)) {
@@ -54,7 +70,7 @@ if (mysqli_insert_id($conn)) {
                             </p>
                             <br>
                             <div class="alert alert-danger" role="alert">
-                                <form action="cliente_cadastro.php" name="form_cadastro" id="form_cadastro" method="POST" enctype="multipart/form-data">
+                                <form action="cadastro_envia.php" name="form_cadastro" id="form_cadastro" method="POST" enctype="multipart/form-data">
 
                                     <label for="login_usuario">Nome completo:</label>
                                     <p class="input-group">
@@ -69,7 +85,7 @@ if (mysqli_insert_id($conn)) {
                                         <span class="input-group-addon">
                                             <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
                                         </span>
-                                        <input type="email" name="email" id="email" class="form-control" autofocus required autocomplete="off" placeholder="Digite o seu E-mail">
+                                        <input type="email" name="email" id="email" class="form-control" required autocomplete="off" placeholder="Digite o seu E-mail">
                                     </p>
 
                                     <label for="senha_usuario">CPF:</label>
