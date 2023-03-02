@@ -5,6 +5,15 @@ include '../connection/connect.php';
 $lista = $conn->query("select * from tbpedidoreservas where status_pedido = 'Enviado' order by id_pedido_reservas desc");
 $row = $lista->fetch_assoc();
 $rows = $lista->num_rows;
+
+$listat = $conn->query("select * from tbpedidoreservas");
+$rowt = $listat->fetch_assoc();
+$rowst = $listat->num_rows;
+
+// Informações
+$listaCli = $conn->query("select * from tbclientes");
+$rowCli = $listaCli->fetch_assoc();
+$rowsCli = $listaCli->num_rows;
 ?>
 
 <!DOCTYPE html>
@@ -40,8 +49,8 @@ $rows = $lista->num_rows;
            	        <!-- início estrutura repetição -->
                     <?php do {?>
                     <tr>
-                        <td class="text-center hidden">
-                            <?php echo $row['id_pedido_reserva']; ?>
+                        <td class="text-cente hidden">
+                            <?php echo $row['id_pedido_reservas']; ?>
                         </td>
 
 
@@ -59,17 +68,17 @@ $rows = $lista->num_rows;
                         </td>
 
                         <td>
-                            <button data-nome="<?php echo $row['id_pedido_reservas']?>" data-id="<?php echo $rowCli['id_cliente']?>" class="informar btn btn-xs btn-block btn-primary">
-                                <span class="glyphicon glyphicon-trash"></span>
+                            <button data-nome="<?php echo $row['id_pedido_reservas']?>" data-idInfo="<?php echo $rowCli['id_cliente']?>" class="informar btn btn-xs btn-block btn-primary">
+                                <span class="glyphicon glyphicon-list-alt"></span>
                                 <span class="hidden-xs">INFORMAÇÕES</span>
                             </button>
 
-                            <button data-nome="<?php echo $row['id_pedido_reservas']?>" data-id="<?php echo $row['id_pedido_reservas']?>" class="confirmar btn btn-success btn-block btn-xs"> 
+                            <button data-id="<?php echo $row['id_pedido_reservas']?>" class="confirmar btn btn-success btn-block btn-xs"> 
                                 <span class="glyphicon glyphicon-refresh"></span>
                                 <span class="hidden-xs">CONFIRMAR</span>
                             </button>
                             
-                            <button data-nome="<?php echo $row['id_pedido_reservas']?>" data-id="<?php echo $row['id_pedido_reservas']?>" class="recusar btn btn-xs btn-block btn-danger">
+                            <button data-id="<?php echo $row['id_pedido_reservas']?>" class="recusar btn btn-xs btn-block btn-danger">
                                 <span class="glyphicon glyphicon-trash"></span>
                                 <span class="hidden-xs">RECUSAR</span>
                             </button>
@@ -91,7 +100,7 @@ $rows = $lista->num_rows;
                     </button>
                 </div>
                 <div class="modal-body">
-                
+                    
                     <form action="reserva_pedido.php" method="post" name="" enctype="multipart/form-data" id="">
                         <label for="nome">Nome:</label>
                         <div class="input-group">
@@ -151,8 +160,7 @@ $rows = $lista->num_rows;
                 </div>
                 <div class="modal-body">
                     
-                    <form action="reserva_confirma.php" method="post" name="" enctype="multipart/form-data" id="">
-                        
+                    <form action="" method="post" name="form_confirma_pedido" class="con-c" enctype="multipart/form-data" id="form_confirma_pedido">  
                         <label for="mesa">Mesa dísponivel:</label>
                         <div class="input-group">
                             <span class="input-group-addon">
@@ -162,10 +170,8 @@ $rows = $lista->num_rows;
                         </div>
 
                         <hr>
-                        
-                        <a href="#" type="submit" class="btn btn-danger con-yes">
-                            Confirmar
-                        </a>                
+                        <input type="submit" name="enviar" id="enviar" class="btn btn-success" value="Confirmar">
+
 
                         <button class="btn btn-danger" data-dismiss="modal">
                             Cancelar
@@ -187,7 +193,7 @@ $rows = $lista->num_rows;
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="reserva_pedido.php" method="post" name="" enctype="multipart/form-data" id="">         
+                    <form action="reserva_pedido.php" class="con-r" method="post" name="" enctype="multipart/form-data" id="">         
 
                         <label for="mensagem">Mensagem para o cliente:</label>
                         <div class="input-group">
@@ -199,8 +205,8 @@ $rows = $lista->num_rows;
 
                         <hr>
 
-                        <a href="#" type="button" class="btn btn-danger recu-yes">
-                            Confirmar
+                        <a href="#" type="button" class="btn btn-success recu-yes">
+                            Recusar
                         </a>
                         <button class="btn btn-danger" data-dismiss="modal">
                             Cancelar
@@ -217,23 +223,20 @@ $rows = $lista->num_rows;
     $('.informar').on('click',function(){
         var nome = $(this).data('nome'); //busca o nome com a descrição (data-nome)
         var idInfo = $(this).data('id'); // busca o id (data-id)
-        $('span.nome').text(nome); // insere o nome do item na confirmação
         $('#modalInfo').modal('show'); // chamar o modal
     });
 
     $('.confirmar').on('click',function(){
-        var nome = $(this).data('nome'); //busca o nome com a descrição (data-nome)
         var idCon = $(this).data('id'); // busca o id (data-id)
-        $('span.nome').text(nome); // insere o nome do item na confirmação
-        $('a.con-yes').attr('href','reserva_confirma.php?id_pedido_reservas='+idCon); //chama o arquivo php para excluir o produto
+        console.log(idCon);
+        $('form.con-c').attr('action','reserva_confirma.php?id_pedido_reservas='+idCon); //chama o arquivo php para excluir o produto
         $('#modalCon').modal('show'); // chamar o modal
     });
 
     $('.recusar').on('click',function(){
-        var nome = $(this).data('nome'); //busca o nome com a descrição (data-nome)
         var idRecu = $(this).data('id'); // busca o id (data-id)
-        $('span.nome').text(nome); // insere o nome do item na confirmação
-        $('a.delete-yes').attr('href','tipo_excluir.php?id_tipo='+id); //chama o arquivo php para excluir o produto
+        console.log(idRecu);
+        $('form.con-r').attr('action','reserva_recusa.php?id_pedido_reservas='+idRecu); //chama o arquivo php para excluir o produto
         $('#modalRecu').modal('show'); // chamar o modal
     });
 </script>

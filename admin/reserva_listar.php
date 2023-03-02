@@ -32,17 +32,17 @@ $rows = $lista->num_rows;
                 <th class="text-center">MESA</th>
                 <th class="text-center">
                     <button target="_self" class="btn btn-success btn-xs" role="button">
-                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                        <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
                         <span class="hidden-xs">CONFIRMADAS</span>
                     </button>
 
                     <button target="_self" class="btn btn-danger btn-xs" role="button">
-                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                         <span class="hidden-xs">CANCELADAS</span>
                     </button>
 
                     <button href="mesas_insere.php" class="btn btn-primary btn-xs" role="button">
-                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                        <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
                         <span class="hidden-xs">EXPIRADAS</span>
                     </button>
                 </th>
@@ -61,7 +61,10 @@ $rows = $lista->num_rows;
                         </td>
 
                         <td class="text-center text-uppercase">
-                            <?php echo $row['status_reservas'];?>    
+                            <button href="mesas_insere.php" class="btn btn-primary btn-xs" role="button">
+                                <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+                                <span class="hidden-xs">INFORMAÇÕES</span>
+                            </button>   
                         </td>
                     </tr>
                     <?php } while ($row = $lista->fetch_assoc());?>
