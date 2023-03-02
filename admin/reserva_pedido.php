@@ -5,22 +5,6 @@ include '../connection/connect.php';
 $lista = $conn->query("select * from tbpedidoreservas where status_pedido = 'Enviado' order by id_pedido_reservas desc");
 $row = $lista->fetch_assoc();
 $rows = $lista->num_rows;
-
-// Informações
-$listaCli = $conn->query("select * from tbclientes");
-$rowCli = $listaCli->fetch_assoc();
-$rowsCli = $listaCli->num_rows;
-
-// Confirmar
-//$Conf = $conn->query("");
-//$rowConf = $Conf->fetch_assoc();
-//$rowsConf = $Conf->num_rows;
-
-// Recusar
-//$lista = $conn->query("s desc");
-//$row = $lista->fetch_assoc();
-//$rows = $lista->num_rows;
-
 ?>
 
 <!DOCTYPE html>
@@ -57,7 +41,7 @@ $rowsCli = $listaCli->num_rows;
                     <?php do {?>
                     <tr>
                         <td class="text-center hidden">
-                            <?php echo $row['id_pedido_reserva'];?>
+                            <?php echo $row['id_pedido_reserva']; ?>
                         </td>
 
 
@@ -108,7 +92,7 @@ $rowsCli = $listaCli->num_rows;
                 </div>
                 <div class="modal-body">
                 
-                    <form action="" method="post" name="" enctype="multipart/form-data" id="">
+                    <form action="reserva_pedido.php" method="post" name="" enctype="multipart/form-data" id="">
                         <label for="nome">Nome:</label>
                         <div class="input-group">
                             <span class="input-group-addon">
@@ -167,7 +151,7 @@ $rowsCli = $listaCli->num_rows;
                 </div>
                 <div class="modal-body">
                     
-                    <form action="" method="post" name="" enctype="multipart/form-data" id="">
+                    <form action="reserva_confirma.php" method="post" name="" enctype="multipart/form-data" id="">
                         
                         <label for="mesa">Mesa dísponivel:</label>
                         <div class="input-group">
@@ -178,9 +162,11 @@ $rowsCli = $listaCli->num_rows;
                         </div>
 
                         <hr>
-
-                        <input type="submit" name="confirmar" id="confirmar" class="btn btn-success" value="Confirmar">
                         
+                        <a href="#" type="submit" class="btn btn-danger con-yes">
+                            Confirmar
+                        </a>                
+
                         <button class="btn btn-danger" data-dismiss="modal">
                             Cancelar
                         </button>
@@ -201,7 +187,7 @@ $rowsCli = $listaCli->num_rows;
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="" method="post" name="" enctype="multipart/form-data" id="">         
+                    <form action="reserva_pedido.php" method="post" name="" enctype="multipart/form-data" id="">         
 
                         <label for="mensagem">Mensagem para o cliente:</label>
                         <div class="input-group">
@@ -213,8 +199,9 @@ $rowsCli = $listaCli->num_rows;
 
                         <hr>
 
-                        <input type="submit" name="enviar" id="enviar" class="btn btn-success" value="Enviar">
-                        
+                        <a href="#" type="button" class="btn btn-danger recu-yes">
+                            Confirmar
+                        </a>
                         <button class="btn btn-danger" data-dismiss="modal">
                             Cancelar
                         </button>
@@ -238,6 +225,7 @@ $rowsCli = $listaCli->num_rows;
         var nome = $(this).data('nome'); //busca o nome com a descrição (data-nome)
         var idCon = $(this).data('id'); // busca o id (data-id)
         $('span.nome').text(nome); // insere o nome do item na confirmação
+        $('a.con-yes').attr('href','reserva_confirma.php?id_pedido_reservas='+idCon); //chama o arquivo php para excluir o produto
         $('#modalCon').modal('show'); // chamar o modal
     });
 
@@ -245,6 +233,7 @@ $rowsCli = $listaCli->num_rows;
         var nome = $(this).data('nome'); //busca o nome com a descrição (data-nome)
         var idRecu = $(this).data('id'); // busca o id (data-id)
         $('span.nome').text(nome); // insere o nome do item na confirmação
+        $('a.delete-yes').attr('href','tipo_excluir.php?id_tipo='+id); //chama o arquivo php para excluir o produto
         $('#modalRecu').modal('show'); // chamar o modal
     });
 </script>
