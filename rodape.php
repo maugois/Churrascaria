@@ -11,7 +11,7 @@
         <!-- area de localização -->
         <div class="col-sm-6 col-md-4">
             <div class="panel-footer" style="background: none;">
-                <img src="192x32" alt="Logo pequeno">
+                <img src="images/logo_churrascaria.png" alt="Logo pequeno">
                 <br>
                 <i><strong>O melhor churrasco da zona Leste</strong></i>
                 <address>

@@ -23,7 +23,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a href="index.php" class="navbar-brand">
-                    <img src="../imagens/" alt="Logo churrascaria">
+                    <img src="../images/logo_churrascaria.png" alt="Logo churrascaria">
                 </a>
             </div>
             <!-- Fecha Agrupamento para exibição Mobile -->
