@@ -6,7 +6,7 @@ if ($_POST) {
     $id_pedido = $_GET['id_pedido_reservas'];
     $updateSql = "UPDATE tbpedidoreservas
                     SET status_pedido = 'Visualizado'
-                     WHERE id_pedido_reserva = $id_pedido;";
+                     WHERE id_pedido_reservas = $id_pedido;";
     $resultado = $conn->query($updateSql);
     // Define como uma reserva
     $mesa = $_POST['mesa'];
